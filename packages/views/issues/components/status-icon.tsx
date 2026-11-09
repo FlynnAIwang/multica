@@ -7,6 +7,7 @@ import type {
   IssueStatusIcon,
 } from "@multica/core/types";
 import { STATUS_CONFIG } from "@multica/core/issues/config";
+import type { CSSProperties } from "react";
 
 // Geometry constants (viewBox 0 0 14 14, center 7,7)
 
@@ -177,6 +178,38 @@ const BUILT_IN_ICON_COLOR: Record<BuiltInIssueStatus, string> = {
   cancelled: "text-muted-foreground",
 };
 
+/**
+ * The colour a status is drawn in, shared by the glyph below and by surfaces
+ * that write the status out as text (the 稳卖 inbox row), so a status reads in
+ * the same colour everywhere the workflow shows it. Built-ins use their
+ * semantic token; a custom status uses its own `#rrggbb` when it has one and
+ * otherwise falls back to its category's token.
+ */
+export function statusColorProps({
+  status,
+  category: categoryProp,
+  color,
+  inheritColor = false,
+}: {
+  status: IssueStatus | string;
+  category?: IssueStatusCategory;
+  color?: string | null;
+  inheritColor?: boolean;
+}): { className: string; style?: CSSProperties } {
+  const category = categoryProp ?? statusCategoryOfKey(status);
+  const builtIn = isBuiltInIssueStatus(status) ? status : null;
+  // A custom color wins over the category's token, but only when the caller
+  // isn't already forcing the glyph to inherit (selected rows, dark chips).
+  const useCustomColor = !builtIn && !inheritColor && Boolean(color);
+  if (useCustomColor) return { className: "", style: { color: color ?? undefined } };
+  if (inheritColor) return { className: "" };
+  return {
+    className: builtIn
+      ? BUILT_IN_ICON_COLOR[builtIn]
+      : STATUS_CONFIG[category]?.iconColor ?? "text-muted-foreground",
+  };
+}
+
 // Public component
 
 export function StatusIcon({
@@ -209,22 +242,14 @@ export function StatusIcon({
     : null;
   const Renderer = (builtIn ? STATUS_RENDERERS[builtIn] : customRenderer)
     ?? STATUS_RENDERERS[CATEGORY_RENDERER[category]] ?? TodoIcon;
-  // A custom color wins over the category's token, but only when the caller
-  // isn't already forcing the glyph to inherit (selected rows, dark chips).
-  const useCustomColor = !builtIn && !inheritColor && Boolean(color);
+  const colorProps = statusColorProps({ status, category, color, inheritColor });
 
   return (
     <svg
       viewBox="0 0 14 14"
       fill="none"
-      style={useCustomColor ? { color: color ?? undefined } : undefined}
-      className={`${className} ${
-        inheritColor || useCustomColor
-          ? ""
-          : builtIn
-            ? BUILT_IN_ICON_COLOR[builtIn]
-            : STATUS_CONFIG[category]?.iconColor ?? "text-muted-foreground"
-      } shrink-0`}
+      style={colorProps.style}
+      className={`${className} ${colorProps.className} shrink-0`}
     >
       <Renderer />
     </svg>

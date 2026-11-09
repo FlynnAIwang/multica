@@ -121,8 +121,6 @@ import { ExecutionLogSection } from "./execution-log-section";
 import { WakeupsSection } from "./wakeups-section";
 import { QuickActionsSection } from "./quick-actions-section";
 import { PluginPanelSection } from "../../plugins";
-import { PullRequestsSection } from "./pull-requests-section";
-import { useGitHubSettings } from "@multica/core/github";
 import { DeliverablesSection } from "./deliverables/deliverables-section";
 import { IssueAppsSection } from "./issue-apps-section";
 import { DeliverablesOverview } from "./deliverables/deliverables-overview";
@@ -1461,8 +1459,6 @@ export function IssueDetail({ issueId, onDelete, onDone, defaultSidebarOpen = tr
   const [propertiesOpen, setPropertiesOpen] = useState(true);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [parentIssueOpen, setParentIssueOpen] = useState(true);
-  const [pullRequestsOpen, setPullRequestsOpen] = useState(true);
-  const githubSettings = useGitHubSettings();
 
   // Per-issue, per-session set of optional properties currently visible in
   // the sidebar Properties section. Seeded on issue switch with whichever
@@ -3152,17 +3148,10 @@ export function IssueDetail({ issueId, onDelete, onDone, defaultSidebarOpen = tr
 
       <IssueDuplicatesSection issueId={issue.id} />
 
-      {/* Pull requests — hidden when the workspace disables the PR sidebar
-          (or the GitHub master switch is off). Backend data is kept either
-          way so re-enabling restores the section instantly. */}
-      {githubSettings.prSidebar && (
-        <PullRequestsSection
-          issueId={id}
-          identifier={issue.identifier}
-          open={pullRequestsOpen}
-          onOpenChange={setPullRequestsOpen}
-        />
-      )}
+      {/* 稳卖: no Pull Request section. It only mirrors GitHub PRs linked to
+          the issue — a developer workflow our Amazon business users never
+          touch. Backend data and the workspace GitHub settings are untouched,
+          so restoring this block brings it back. */}
 
       {/* Deliverables — the files this issue's comments delivered. Hidden
           while there are none. */}
