@@ -28,9 +28,9 @@ import { useProjectPriorityLabels, useProjectStatusLabels } from "./labels";
 
 const TARGET_DATE = new Date(2026, 10, 20);
 const PROGRESS = { done: 13, total: 21 };
-const LEAD = { name: "Mia", initials: "M" };
-const AGENT = { name: "Turing", initials: "T", avatarUrl: formatAvatarEmoji("🧩"), isAgent: true };
-const REPOS = ["acme/website", "acme/brand"];
+const LEAD = { name: "王总", initials: "王" };
+const AGENT = { name: "运营小助", initials: "运", avatarUrl: formatAvatarEmoji("🧩"), isAgent: true };
+const REPOS = ["11月广告计划.xlsx", "品牌手册.pdf"];
 
 export function ProjectsIntro({ onCreate }: { onCreate: () => void }) {
   const { t } = useT("projects");

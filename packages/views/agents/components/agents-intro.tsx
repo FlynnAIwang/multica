@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { Bot, ChevronRight, GitPullRequest, Laptop, Plus, Search } from "@multica/ui/icons";
+import { Bot, ChevronRight, FileText, Laptop, Plus, Search } from "@multica/ui/icons";
 import { Button } from "@multica/ui/components/ui/button";
 import { ActorAvatar } from "@multica/ui/components/common/actor-avatar";
 import { formatAvatarEmoji } from "@multica/ui/lib/avatar-emoji";
@@ -16,16 +16,16 @@ import { StatusIcon } from "../../issues/components/status-icon";
 import { ProviderLogo } from "../../runtimes/components/provider-logo";
 import { useT } from "../../i18n";
 
-const TURING = { name: "Turing", initials: "T", avatarUrl: formatAvatarEmoji("🧩"), isAgent: true };
-const KEPLER = { name: "Kepler", initials: "K", avatarUrl: formatAvatarEmoji("🔭"), isAgent: true };
-const MIA = { name: "Mia", initials: "M" };
-const MACHINE = "studio-mbp";
+const TURING = { name: "运营小助", initials: "运", avatarUrl: formatAvatarEmoji("🧩"), isAgent: true };
+const KEPLER = { name: "调研小助", initials: "调", avatarUrl: formatAvatarEmoji("🔭"), isAgent: true };
+const MIA = { name: "王总", initials: "王" };
+const MACHINE = "办公室 Mac mini";
 const HARNESS = "Claude Code";
 const MODEL = "Sonnet 4.5";
-const ISSUE_ID = "MUL-142";
-const PR_TITLE = "#284 fix(pricing): mobile layout";
-const SOURCE_FILE = "pricing-card.tsx";
-const TEST_RUN = "pnpm test pricing ✓ 12 passed";
+const ISSUE_ID = "WM-142";
+const PR_TITLE = "PW-5 主图（移动端）新版素材";
+const SOURCE_FILE = "PW-5 主图.psd";
+const TEST_RUN = "平台图片规范检查 ✓ 12 项通过";
 
 export function AgentsIntro({
   onCreate,
@@ -178,7 +178,7 @@ function DeliverArt() {
       <div className="mt-1.5 pl-7">
         <p>{t(($) => $.intro.art.comment)}</p>
         <div className="mt-2 flex items-center gap-1.5 rounded-md bg-muted px-2 py-1.5">
-          <GitPullRequest className="size-3 shrink-0" />
+          <FileText className="size-3 shrink-0" />
           <span className="flex-1 truncate font-medium">{PR_TITLE}</span>
           <span className="shrink-0 font-medium text-success">
             {tIssues(($) => $.detail.pull_request_merge_ready)}

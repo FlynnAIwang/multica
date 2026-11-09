@@ -16,11 +16,11 @@ import {
 import { StatusIcon } from "../../issues/components/status-icon";
 import { useT } from "../../i18n";
 
-const ADA = { name: "Ada", initials: "A", avatarUrl: formatAvatarEmoji("🌸"), isAgent: true };
-const TURING = { name: "Turing", initials: "T", avatarUrl: formatAvatarEmoji("🧩"), isAgent: true };
-const KEPLER = { name: "Kepler", initials: "K", avatarUrl: formatAvatarEmoji("🔭"), isAgent: true };
-const MIA = { name: "Mia", initials: "M" };
-const ISSUE_ID = "MUL-128";
+const ADA = { name: "组长小稳", initials: "稳", avatarUrl: formatAvatarEmoji("🌸"), isAgent: true };
+const TURING = { name: "运营小助", initials: "运", avatarUrl: formatAvatarEmoji("🧩"), isAgent: true };
+const KEPLER = { name: "调研小助", initials: "调", avatarUrl: formatAvatarEmoji("🔭"), isAgent: true };
+const MIA = { name: "王总", initials: "王" };
+const ISSUE_ID = "WM-128";
 
 export function SquadsIntro({ onCreate }: { onCreate: () => void }) {
   const { t } = useT("squads");
@@ -189,9 +189,9 @@ function ProgressArt() {
   const { t } = useT("squads");
   const rows = [
     { id: ISSUE_ID, status: "in_progress", title: t(($) => $.intro.art.issue_dark_mode), member: TURING },
-    { id: "MUL-124", status: "in_review", title: t(($) => $.intro.art.issue_board_columns), member: KEPLER },
-    { id: "MUL-131", status: "todo", title: t(($) => $.intro.art.issue_inbox_gestures), member: ADA },
-    { id: "MUL-117", status: "done", title: t(($) => $.intro.art.issue_paste_images), member: TURING },
+    { id: "WM-124", status: "in_review", title: t(($) => $.intro.art.issue_board_columns), member: KEPLER },
+    { id: "WM-131", status: "todo", title: t(($) => $.intro.art.issue_inbox_gestures), member: ADA },
+    { id: "WM-117", status: "done", title: t(($) => $.intro.art.issue_paste_images), member: TURING },
   ];
   return (
     <IntroArtCard className="p-1.5">

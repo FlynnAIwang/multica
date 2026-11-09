@@ -18,15 +18,15 @@ import type { CreateSkillMethod } from "./create-skill-dialog";
 import { SKILL_CREATE_METHODS, SkillCreateMenu } from "./skill-list-controls";
 
 const AGENTS = [
-  { name: "Kepler", initials: "K", avatarUrl: formatAvatarEmoji("🔭"), isAgent: true },
-  { name: "Turing", initials: "T", avatarUrl: formatAvatarEmoji("🧩"), isAgent: true },
-  { name: "Ada", initials: "A", avatarUrl: formatAvatarEmoji("🌸"), isAgent: true },
-  { name: "Nova", initials: "N", avatarUrl: formatAvatarEmoji("✨"), isAgent: true },
+  { name: "调研小助", initials: "调", avatarUrl: formatAvatarEmoji("🔭"), isAgent: true },
+  { name: "运营小助", initials: "运", avatarUrl: formatAvatarEmoji("🧩"), isAgent: true },
+  { name: "组长小稳", initials: "稳", avatarUrl: formatAvatarEmoji("🌸"), isAgent: true },
+  { name: "文案小助", initials: "文", avatarUrl: formatAvatarEmoji("✨"), isAgent: true },
 ];
 
-const SHARED_SKILL = "pr-review";
-const LOCAL_SKILLS = ["frontend-design", "release-notes"];
-const MACHINE = "studio-mbp";
+const SHARED_SKILL = "Listing 合规审核";
+const LOCAL_SKILLS = ["主图文案写作", "差评回复话术"];
+const MACHINE = "办公室 Mac mini";
 const mono = "font-mono text-caption";
 
 export function SkillsIntro({

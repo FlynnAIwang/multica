@@ -49,7 +49,7 @@
     "kpi_failed_label": "失败运行 · {{days}}天",
     "kpi_failed_hint": "共 {{total}} 次运行",
     "kpi_rate_label": "失败率 · {{days}}天",
-    "kpi_agents_label": "受影响智能体 · {{days}}天",
+    "kpi_agents_label": "受影响 AI 员工 · {{days}}天",
     "kpi_agents_hint": "最多 {{name}} · {{count}} 次",
     "tooltip_rate": "错误率",
     "class": {
@@ -57,8 +57,8 @@
       "rate_limit": "限流",
       "timeout": "超时",
       "provider": "模型服务",
-      "runtime": "运行时",
-      "agent": "智能体",
+      "runtime": "运行环境",
+      "agent": "AI 员工",
       "other": "其他"
     },
     "title": "错误",
@@ -66,15 +66,15 @@
     "mix_title": "失败构成 · {{failed}}",
     "mix_label": "失败构成",
     "codes_label": "错误码",
-    "by_agent": "问题最多的智能体",
+    "by_agent": "问题最多的 AI 员工",
     "sort_label": "错误榜排序依据",
     "sort_failed": "失败数",
     "sort_rate": "失败率",
-    "header_agent": "智能体",
+    "header_agent": "AI 员工",
     "header_failed": "失败数",
     "header_runs": "运行数",
     "header_rate": "失败率",
-    "other_agents": "其他智能体",
+    "other_agents": "其他 AI 员工",
     "low_sample": "所选时间范围内运行不足 {{count}} 次，失败率参考价值有限。",
     "no_data": "所选时间范围内没有失败的运行",
     "show_reasons": "展开错误码",
@@ -84,12 +84,12 @@
   },
   "leaderboard": {
     "title": "排行榜",
-    "caption": "{{count}} 个智能体",
-    "caption_with_deleted": "{{count}} 个智能体 · {{deleted}} 个已删除",
-    "sort_label": "智能体排序依据",
-    "deleted_agents": "已删除的智能体",
-    "other_agents": "其他智能体",
-    "header_agent": "智能体",
+    "caption": "{{count}} 个 AI 员工",
+    "caption_with_deleted": "{{count}} 个 AI 员工 · {{deleted}} 个已删除",
+    "sort_label": "AI 员工排序依据",
+    "deleted_agents": "已删除的 AI 员工",
+    "other_agents": "其他 AI 员工",
+    "header_agent": "AI 员工",
     "header_tokens": "Token",
     "header_cost": "费用",
     "header_time": "耗时",
@@ -99,11 +99,11 @@
     "usage_totals_pending": "用量汇总仍在处理中",
     "show_all": "展开全部",
     "show_less": "只看前 {{count}} 个",
-    "no_data": "所选时间范围内暂无智能体活动。"
+    "no_data": "所选时间范围内暂无 AI 员工活动。"
   },
   "empty": {
     "title": "暂无消耗数据",
-    "body": "智能体开始运行后，这里会显示 token、费用和失败率。"
+    "body": "AI 员工开始运行后，这里会显示 token、费用和失败率。"
   },
   "duration": {
     "less_than_minute": "<1分钟"

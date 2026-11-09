@@ -1,17 +1,17 @@
 import {
   BarChart3,
-  Bug,
+  Eye,
   FileSearch,
-  GitPullRequest,
+  MessageSquare,
   Newspaper,
-  Shield,
+  Package,
   type IconComponent,
 } from "@multica/ui/icons";
 import type { ScheduleConfig } from "./schedule-editor/model";
 
 // Templates offered by the empty state and the Autopilots panel.
-// Prompts stay raw English because they're injected directly into the
-// agent's task input.
+// Prompts are injected directly into the agent's task input.
+// 稳卖：模板内容已改为跨境电商场景（中文），id 保持不变以兼容类型与文案 key。
 
 export type AutopilotTemplateId =
   | "daily_news"
@@ -37,62 +37,62 @@ const MONDAY: ScheduleConfig["days"] = { kind: "weekly", daysOfWeek: [1] };
 export const AUTOPILOT_TEMPLATES: AutopilotTemplate[] = [
   {
     id: "daily_news",
-    prompt: `1. Search the web for news and announcements published today only (strictly today's date)
-2. Filter for topics relevant to our team and industry
-3. For each item, write a short summary including: title, source, key takeaways
-4. Compile everything into a single digest post
-5. Post the digest as a comment on this issue and @mention all workspace members`,
+    prompt: `1. 搜索今天（只限今天）发布的跨境电商相关新闻和平台公告（亚马逊、TikTok Shop、Temu 等）
+2. 只保留和我们类目、站点、物流、合规有关的内容
+3. 每条写清：标题、来源、对我们有什么影响
+4. 汇总成一份当日简报
+5. 把简报发在这个任务的评论里，并 @ 工作区所有成员`,
     icon: Newspaper,
     schedule: { time: { kind: "at", time: "09:00" }, days: { kind: "every" } },
   },
   {
     id: "pr_review",
-    prompt: `1. List all open pull requests in the repository
-2. Identify PRs that have been open for more than 24 hours without a review
-3. For each stale PR, note the author, age, and a one-line summary of the change
-4. Post a comment on this issue listing all stale PRs with links
-5. @mention the team to remind them to review`,
-    icon: GitPullRequest,
+    prompt: `1. 打开项目里列出的主要竞品链接
+2. 记录每个竞品今天的售价、优惠券/折扣、评分和类目排名
+3. 和昨天对比，标出价格下调、新增促销或排名大幅变化的竞品
+4. 给出我们是否需要跟进调整的建议
+5. 把结果整理成表格发在这个任务的评论里，有重大变化时 @ 负责人`,
+    icon: Eye,
     schedule: { time: { kind: "at", time: "10:00" }, days: WEEKDAYS },
   },
   {
     id: "bug_triage",
-    prompt: `1. List all backlog issues that have not been prioritized
-2. For each issue, read the description and any attached logs or screenshots
-3. Assess severity (critical / high / medium / low) based on user impact and scope
-4. Set the priority field on the issue accordingly
-5. Add a comment explaining your assessment and suggested next steps`,
-    icon: Bug,
+    prompt: `1. 收集过去 24 小时新增的差评（3 星及以下）和客诉
+2. 逐条阅读，归类问题：产品质量、物流、描述不符、使用问题、其他
+3. 按影响判断轻重（紧急 / 高 / 中 / 低）
+4. 给每类问题写出处理建议（回复话术、是否需要改 Listing 或反馈工厂）
+5. 把结论发在这个任务的评论里`,
+    icon: MessageSquare,
     schedule: { time: { kind: "at", time: "09:00" }, days: WEEKDAYS },
   },
   {
     id: "weekly_progress",
-    prompt: `1. Gather all issues completed (status "done") in the past 7 days
-2. Gather all issues currently in progress
-3. Identify any blocked issues and their blockers
-4. Calculate key metrics: issues closed, issues opened, net change
-5. Write a structured weekly report with sections: Completed, In Progress, Blocked, Metrics
-6. Post the report as a comment on this issue`,
+    prompt: `1. 汇总过去 7 天的销售额、订单量、广告花费和 ACoS
+2. 汇总过去 7 天已完成的任务
+3. 列出正在进行中的任务
+4. 找出卡住的任务和卡住的原因
+5. 按「经营数据 / 已完成 / 进行中 / 卡住 / 下周重点」写成周报
+6. 把周报发在这个任务的评论里`,
     icon: BarChart3,
     schedule: { time: { kind: "at", time: "17:00" }, days: MONDAY },
   },
   {
     id: "dependency_audit",
-    prompt: `1. Run dependency audit tools on the project (npm audit, go vuln check, etc.)
-2. Identify any packages with known security vulnerabilities
-3. List outdated packages that are more than 2 major versions behind
-4. For each finding, note the severity, affected package, and recommended fix
-5. Post a summary report as a comment with actionable items`,
-    icon: Shield,
+    prompt: `1. 读取各店铺、各 SKU 的当前库存和在途库存
+2. 按最近 14 天的日均销量估算可售天数
+3. 标出可售天数低于 30 天的 SKU
+4. 每个 SKU 写清：当前库存、在途、可售天数、建议补货量
+5. 把预警清单发在这个任务的评论里，并 @ 供应链负责人`,
+    icon: Package,
     schedule: { time: { kind: "at", time: "08:00" }, days: MONDAY },
   },
   {
     id: "documentation_check",
-    prompt: `1. List all code changes merged in the past 7 days (via git log)
-2. For each significant change, check if related documentation was updated
-3. Identify any new APIs, config options, or features missing documentation
-4. Create a list of documentation gaps with file paths and suggested content
-5. Post the findings as a comment on this issue`,
+    prompt: `1. 检查我们在售的 Listing：标题、五点描述、图片、价格
+2. 查找平台违规词、夸大宣传和侵权风险用词
+3. 检查是否缺图、图片和文字是否一致、各站点价格是否一致
+4. 列出每个问题所在的 Listing 和修改建议
+5. 把检查结果发在这个任务的评论里`,
     icon: FileSearch,
     schedule: { time: { kind: "at", time: "14:00" }, days: MONDAY },
   },

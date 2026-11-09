@@ -93,7 +93,7 @@
     },
     "actions": {
       "retry": "重试",
-      "retry_autopilots": "重试加载自动化用量",
+      "retry_autopilots": "重试加载例行任务用量",
       "upgrade": "升级到 Pro",
       "manage": "管理账单",
       "add_seats": "添加席位",
@@ -145,7 +145,7 @@
       "title": "当前套餐",
       "plan": "工作区套餐",
       "members": "成员席位",
-      "members_description": "智能体和待接受的邀请不计入席位。",
+      "members_description": "AI 员工和待接受的邀请不计入席位。",
       "member_count_other": "{{count}} 位成员",
       "billing_interval": "付款周期",
       "period_end": "当前周期结束时间"
@@ -170,11 +170,11 @@
     "limits": {
       "title": "用量与限额",
       "issues": "任务数量",
-      "autopilots": "自动化执行",
+      "autopilots": "例行任务执行",
       "unlimited": "不限",
       "per_month": "每月 {{count}} 次",
-      "usage_loading": "正在加载自动化用量",
-      "usage_label": "自动化额度用量",
+      "usage_loading": "正在加载例行任务用量",
+      "usage_label": "例行任务额度用量",
       "current_usage": "当前用量",
       "reached": "已达到限额",
       "usage_total": "{{total}} / {{limit}}",
@@ -184,7 +184,7 @@
     },
     "seats": {
       "title": "席位",
-      "description": "已购席位用于当前成员和待接受邀请，智能体不占席位。",
+      "description": "已购席位用于当前成员和待接受邀请，AI 员工不占席位。",
       "human_members": "已用席位",
       "billed": "已购席位",
       "pending_invitations": "待接受邀请",

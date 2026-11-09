@@ -1,9 +1,9 @@
 {
   "page": {
-    "new_autopilot": "新建自动化",
+    "new_autopilot": "新建例行任务",
     "table": {
       "name": "名称",
-      "agent": "智能体",
+      "agent": "AI 员工",
       "created_by": "创建者",
       "mode": "模式",
       "status": "状态",
@@ -14,13 +14,13 @@
       "created": "创建时间"
     },
     "last_run_empty": "--",
-    "no_matches": "没有匹配的自动化",
+    "no_matches": "没有匹配的例行任务",
     "retry": "重试"
   },
   "status": {
     "active": "启用",
     "paused": "已暂停",
-    "paused_runtime_required": "已暂停——执行智能体需绑定运行时",
+    "paused_runtime_required": "已暂停——执行 AI 员工需绑定运行环境",
     "archived": "已归档"
   },
   "execution_mode": {
@@ -35,48 +35,48 @@
   },
   "templates": {
     "daily_news": {
-      "title": "每日新闻摘要",
-      "summary": "搜索并汇总今天的新闻给团队"
+      "title": "每日行业与平台动态",
+      "summary": "汇总今天的平台政策、行业新闻给团队"
     },
     "pr_review": {
-      "title": "PR review 提醒",
-      "summary": "标记需要 review 的滞留 pull request"
+      "title": "竞品价格监控",
+      "summary": "每天检查主要竞品的价格、优惠和排名变化"
     },
     "bug_triage": {
-      "title": "Bug 分诊",
-      "summary": "评估并安排新提交的 bug"
+      "title": "差评与客诉分诊",
+      "summary": "整理新增差评和客诉，判断轻重并给出处理建议"
     },
     "weekly_progress": {
-      "title": "每周进度报告",
-      "summary": "汇总团队本周进展"
+      "title": "每周经营周报",
+      "summary": "汇总本周销售、广告和团队任务进展"
     },
     "dependency_audit": {
-      "title": "依赖审计",
-      "summary": "扫描安全漏洞和过时的依赖包"
+      "title": "库存与断货预警",
+      "summary": "检查库存可售天数，提前提醒补货"
     },
     "documentation_check": {
-      "title": "文档检查",
-      "summary": "检查近期改动是否缺失文档"
+      "title": "Listing 健康检查",
+      "summary": "检查 Listing 是否有违规词、缺图或信息不一致"
     }
   },
   "detail": {
-    "not_found": "未找到该自动化",
+    "not_found": "未找到该例行任务",
     "not_found_description": "它可能已被删除，或你没有访问权限。",
-    "back_to_list": "全部自动化",
-    "pause_aria": "暂停自动化",
-    "activate_aria": "启用自动化",
-    "paused_runtime_required": "由于执行智能体失去运行时，自动化已暂停。绑定运行时后请重新启用。",
-    "bind_runtime": "绑定运行时",
+    "back_to_list": "全部例行任务",
+    "pause_aria": "暂停例行任务",
+    "activate_aria": "启用例行任务",
+    "paused_runtime_required": "由于执行 AI 员工失去运行环境，例行任务已暂停。绑定运行环境后请重新启用。",
+    "bind_runtime": "绑定运行环境",
     "edit": "编辑",
     "run_now": "立即运行",
     "running": "运行中...",
-    "toast_triggered": "已触发自动化",
-    "toast_trigger_failed": "触发自动化失败",
-    "run_blocked_invocation_not_allowed": "未触发——你没有该自动化所用智能体的使用权限",
-    "run_blocked_runtime_offline": "未触发——该智能体的运行时已离线",
-    "run_blocked_agent_runtime_required": "未触发——该智能体未绑定运行时，绑定后才能运行",
-    "run_blocked_runtime_access_denied": "未触发——该智能体无法在其私有运行时上运行。请将该运行时设为公开，或重新绑定/复制智能体",
-    "run_blocked_target_unavailable": "未触发——该智能体不可用",
+    "toast_triggered": "已触发例行任务",
+    "toast_trigger_failed": "触发例行任务失败",
+    "run_blocked_invocation_not_allowed": "未触发——你没有该例行任务所用 AI 员工的使用权限",
+    "run_blocked_runtime_offline": "未触发——该 AI 员工的运行环境已离线",
+    "run_blocked_agent_runtime_required": "未触发——该 AI 员工未绑定运行环境，绑定后才能运行",
+    "run_blocked_runtime_access_denied": "未触发——该 AI 员工无法在其私有运行环境上运行。请将该运行环境设为公开，或重新绑定/复制 AI 员工",
+    "run_blocked_target_unavailable": "未触发——该 AI 员工不可用",
     "run_blocked_attribution": "未触发——无法确定本次运行的负责成员",
     "run_blocked_already_active": "未触发——最近已有一次运行覆盖了本次",
     "run_blocked_quota_exceeded": "未触发——本周期的运行额度已用尽",
@@ -84,7 +84,7 @@
     "run_blocked_generic": "未触发——本次运行已被拦截",
     "section_triggers": "触发器",
     "section_run_history": "运行历史",
-    "field_agent": "智能体",
+    "field_agent": "AI 员工",
     "field_created_by": "创建者",
     "field_output_mode": "输出模式",
     "field_project": "关联项目",
@@ -106,11 +106,11 @@
     "add_trigger": "添加触发器",
     "no_triggers": "未配置触发器。添加一个时间表让它自动运行。",
     "no_runs": "暂无运行记录。点击\"立即运行\"手动触发。",
-    "delete_button": "删除自动化",
-    "toast_deleted": "已删除自动化",
-    "toast_delete_failed": "删除自动化失败",
+    "delete_button": "删除例行任务",
+    "toast_deleted": "已删除例行任务",
+    "toast_delete_failed": "删除例行任务失败",
     "delete_dialog": {
-      "title": "删除自动化",
+      "title": "删除例行任务",
       "description": "将永久删除\"{{title}}\"，连同它的触发器和运行历史。此操作不可撤销。",
       "cancel": "取消",
       "confirm": "删除",
@@ -119,7 +119,7 @@
   },
   "access": {
     "title": "管理访问",
-    "description": "你添加的成员可以编辑、运行并管理这个自动化的触发器和 webhook。",
+    "description": "你添加的成员可以编辑、运行并管理这个例行任务的触发器和 webhook。",
     "current_label": "已授权",
     "add": "添加成员",
     "search_placeholder": "搜索成员…",
@@ -194,7 +194,7 @@
     "toast_delete_failed": "删除触发器失败",
     "delete_dialog": {
       "title": "删除触发器",
-      "description": "将移除该触发器，自动化不再按此时间表运行。此操作不可撤销。",
+      "description": "将移除该触发器，例行任务不再按此时间表运行。此操作不可撤销。",
       "cancel": "取消",
       "confirm": "删除",
       "deleting": "删除中..."
@@ -254,7 +254,7 @@
     "type_webhook": "Webhook",
     "label_field": "标签（可选）",
     "label_placeholder": "例如：工作日早晨",
-    "webhook_help": "保存后 Multica 会生成一个 Webhook URL。向它 POST 任意 JSON 即可触发本自动化。",
+    "webhook_help": "保存后 Multica 会生成一个 Webhook URL。向它 POST 任意 JSON 即可触发本例行任务。",
     "submit": "添加触发器",
     "submitting": "添加中...",
     "toast_added_schedule": "已添加时间表触发器",
@@ -272,38 +272,38 @@
     "toast_update_failed": "更新时间表失败"
   },
   "dialog": {
-    "sr_create": "新建自动化",
-    "sr_edit": "编辑自动化",
-    "header_create": "新建自动化",
-    "header_edit": "编辑自动化",
+    "sr_create": "新建例行任务",
+    "sr_edit": "编辑例行任务",
+    "header_create": "新建例行任务",
+    "header_edit": "编辑例行任务",
     "subtitle": "周期性的 AI 工作",
     "expand": "展开",
     "collapse": "收起",
     "close": "关闭",
-    "title_placeholder": "自动化名称",
+    "title_placeholder": "例行任务名称",
     "runbook_label": "Runbook",
-    "runbook_hint": "智能体每次运行时读取",
-    "description_placeholder": "# 目标\n你希望智能体完成什么？\n\n# 上下文\n这是给谁的？有什么约束？\n\n# 步骤\n1. ...\n2. ...",
+    "runbook_hint": "AI 员工每次运行时读取",
+    "description_placeholder": "# 目标\n你希望 AI 员工完成什么？\n\n# 上下文\n这是给谁的？有什么约束？\n\n# 步骤\n1. ...\n2. ...",
     "auto_run_hint": "保存后会自动运行，直到暂停。",
     "cancel": "取消",
-    "create": "创建自动化",
+    "create": "创建例行任务",
     "save": "保存",
     "creating": "创建中...",
     "saving": "保存中...",
-    "toast_created": "已创建自动化",
-    "toast_create_partial": "自动化已创建，但时间表保存失败",
-    "toast_create_partial_with_reason": "自动化已创建，但时间表保存失败：{{reason}}",
-    "toast_create_failed": "创建自动化失败",
-    "toast_updated": "已更新自动化",
-    "toast_update_partial": "自动化已更新，但时间表保存失败",
-    "toast_update_partial_with_reason": "自动化已更新，但时间表保存失败：{{reason}}",
-    "toast_update_failed": "更新自动化失败",
-    "section_agent": "智能体",
+    "toast_created": "已创建例行任务",
+    "toast_create_partial": "例行任务已创建，但时间表保存失败",
+    "toast_create_partial_with_reason": "例行任务已创建，但时间表保存失败：{{reason}}",
+    "toast_create_failed": "创建例行任务失败",
+    "toast_updated": "已更新例行任务",
+    "toast_update_partial": "例行任务已更新，但时间表保存失败",
+    "toast_update_partial_with_reason": "例行任务已更新，但时间表保存失败：{{reason}}",
+    "toast_update_failed": "更新例行任务失败",
+    "section_agent": "AI 员工",
     "section_assignee": "执行方",
-    "select_agent": "选择智能体",
-    "select_assignee": "选择智能体或小队",
+    "select_agent": "选择 AI 员工",
+    "select_assignee": "选择 AI 员工或小组",
     "section_project": "关联项目",
-    "project_hint": "同时决定运行时的执行环境 —— 该项目的仓库或本地目录",
+    "project_hint": "同时决定运行环境的执行环境 —— 该项目的仓库或本地目录",
     "no_project": "不关联项目",
     "section_output_mode": "输出模式",
     "section_subscribers": "订阅者",
@@ -318,11 +318,11 @@
     "trigger_kind_schedule": "时间表",
     "trigger_kind_webhook": "Webhook",
     "section_webhook": "Webhook",
-    "webhook_help_create": "自动化创建后 Multica 会生成一个 Webhook URL。向它 POST 任意 JSON 即可触发。",
-    "webhook_help_edit": "该自动化由 Webhook 触发。请在详情页复制或重新生成 URL。",
-    "webhook_created_title": "Webhook 自动化已就绪",
-    "webhook_created_description": "向下方的 URL POST 任意 JSON 即可触发该自动化。请立即复制——之后也能在自动化详情页查看或重新生成。",
-    "webhook_created_warning": "请把该 URL 当作密码对待，任何拿到它的人都能触发该自动化。",
+    "webhook_help_create": "例行任务创建后 Multica 会生成一个 Webhook URL。向它 POST 任意 JSON 即可触发。",
+    "webhook_help_edit": "该例行任务由 Webhook 触发。请在详情页复制或重新生成 URL。",
+    "webhook_created_title": "Webhook 例行任务已就绪",
+    "webhook_created_description": "向下方的 URL POST 任意 JSON 即可触发该例行任务。请立即复制——之后也能在例行任务详情页查看或重新生成。",
+    "webhook_created_warning": "请把该 URL 当作密码对待，任何拿到它的人都能触发该例行任务。",
     "webhook_created_done": "完成",
     "event_filter_label": "事件过滤",
     "event_filter_docs_link_label": "了解事件过滤的工作方式",
@@ -331,11 +331,11 @@
     "event_filter_add": "添加",
     "event_filter_remove_label": "移除过滤条件",
     "event_filter_hint": "只处理匹配这些事件的 webhook。留空则接受所有事件。",
-    "schedule_multiple_notice": "该自动化有 {{count}} 条时间表。关闭此弹窗，在下方「触发器」中逐条编辑。",
-    "schedule_empty": "还没有时间表——这个自动化只在手动触发时运行。",
+    "schedule_multiple_notice": "该例行任务有 {{count}} 条时间表。关闭此弹窗，在下方「触发器」中逐条编辑。",
+    "schedule_empty": "还没有时间表——这个例行任务只在手动触发时运行。",
     "schedule_add": "添加时间表",
-    "error_title_required": "请填写自动化名称。",
-    "error_assignee_required": "请选择运行该自动化的智能体或小队。",
+    "error_title_required": "请填写例行任务名称。",
+    "error_assignee_required": "请选择运行该例行任务的 AI 员工或小组。",
     "output_modes": {
       "create_issue": {
         "label": "创建任务",
@@ -434,13 +434,13 @@
     }
   },
   "agent_picker": {
-    "filter_placeholder": "筛选智能体或小队...",
-    "select_agent": "选择智能体",
-    "select_assignee": "选择智能体或小队",
-    "agents_group": "智能体",
-    "squads_group": "小队",
-    "agent_runtime_required": "请先为该智能体绑定运行时",
-    "squad_runtime_required": "请先为该小队的负责人绑定运行时"
+    "filter_placeholder": "筛选 AI 员工或小组...",
+    "select_agent": "选择 AI 员工",
+    "select_assignee": "选择 AI 员工或小组",
+    "agents_group": "AI 员工",
+    "squads_group": "小组",
+    "agent_runtime_required": "请先为该 AI 员工绑定运行环境",
+    "squad_runtime_required": "请先为该小组的负责人绑定运行环境"
   },
   "timezone_picker": {
     "search_placeholder": "搜索时区..."
@@ -452,13 +452,13 @@
     "section_creator": "创建者"
   },
   "actions": {
-    "row_menu": "自动化操作",
+    "row_menu": "例行任务操作",
     "pause": "暂停",
     "resume": "恢复",
     "delete": "删除",
     "delete_dialog": {
-      "title": "删除自动化？",
-      "description_other": "将永久删除 {{count}} 个自动化及其运行历史。",
+      "title": "删除例行任务？",
+      "description_other": "将永久删除 {{count}} 个例行任务及其运行历史。",
       "warning": "此操作无法撤销。",
       "cancel": "取消",
       "confirm": "永久删除",
@@ -474,7 +474,7 @@
     "event": "事件",
     "at": "单次定时",
     "recurring": "周期",
-    "all_agents": "所有智能体",
+    "all_agents": "所有 AI 员工",
     "running": "运行中",
     "active_runs": "{{count}} 个运行未结束",
     "issue_closed": "任务已关闭",
@@ -485,7 +485,7 @@
     "loading": "正在加载唤醒…",
     "disable_selected": "关闭所选",
     "confirm_title": "关闭 {{count}} 个唤醒？",
-    "confirm_body": "关闭后将停止后续唤醒，并撤回仍在排队、尚未交给智能体的运行。已交给智能体的运行会继续，可在执行日志中停止。",
+    "confirm_body": "关闭后将停止后续唤醒，并撤回仍在排队、尚未交给 AI 员工的运行。已交给 AI 员工的运行会继续，可在执行日志中停止。",
     "cancel": "取消",
     "confirm": "关闭",
     "disabling": "正在关闭…",
@@ -505,7 +505,7 @@
     "sources": {
       "all": "全部来源",
       "member": "成员",
-      "agent": "智能体",
+      "agent": "AI 员工",
       "system": "系统"
     },
     "runs_7d": "近 7 天运行",
@@ -513,19 +513,19 @@
     "until_issue_ends": "任务结束前",
     "fires_once": "触发一次",
     "assignee_target": "负责人 · {{name}}",
-    "no_target": "没有智能体负责人",
+    "no_target": "没有 AI 员工负责人",
     "banner_other": "{{count}} 条唤醒已自动暂停：{{issue}}「{{condition}}」——{{reason}}",
     "banner_view": "查看",
     "create": "新建唤醒",
     "create_pick_issue": "选择要添加唤醒的任务",
     "create_pick_issue_description": "唤醒属于该任务，并随任务结束而停止。",
     "intro": {
-      "title": "让智能体在对的时候回来",
-      "description": "唤醒挂在任务上：PR 合并了、有人回复了、到点了，就把智能体叫回来接着做。任务结束，唤醒自动停止。",
+      "title": "让 AI 员工在对的时候回来",
+      "description": "唤醒挂在任务上：有人回复了、前置任务完成了、到点了，就把 AI 员工叫回来接着做。任务结束，唤醒自动停止。",
       "slides": {
         "event": {
           "title": "等事件发生",
-          "description": "不用让智能体空转等待。条件满足时，平台自动把它叫回来。"
+          "description": "不用让 AI 员工空转等待。条件满足时，平台自动把它叫回来。"
         },
         "time": {
           "title": "或者定个时间",
@@ -533,22 +533,22 @@
         },
         "ends": {
           "title": "任务结束就停",
-          "description": "唤醒属于任务，任务完成或取消后自动关闭，不会留下孤儿规则。"
+          "description": "唤醒属于任务，任务完成或取消后自动关闭，不会留下没人管的规则。"
         }
       },
       "art": {
-        "issue_inbox": "收件箱分组的空状态",
-        "issue_board": "看板列宽可拖拽",
-        "issue_paste": "评论支持粘贴图片",
-        "reply": "\"PR 已合并，开始更新文档并关闭任务。\"",
-        "event_examples": "PR 合并、有新评论"
+        "issue_inbox": "黑五主推款上架",
+        "issue_board": "Listing 标题与五点优化",
+        "issue_paste": "竞品差评归纳",
+        "reply": "“货已入仓，开始上架并通知广告组。”",
+        "event_examples": "前置任务完成、有新回复"
       }
     }
   },
   "intro": {
-    "label": "自动化",
-    "title": "让智能体按时自己开工",
-    "description": "设好时间表或 Webhook，每次触发都会自动建任务交给智能体，也可以直接运行。挑一个模板，改改就能用。",
+    "label": "例行任务",
+    "title": "让 AI 员工按时自己开工",
+    "description": "设好时间表，每到时间就自动建任务交给 AI 员工，也可以随时手动运行。挑一个模板，改改就能用。",
     "templates": "从模板开始"
   }
 }

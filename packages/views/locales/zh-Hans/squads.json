@@ -1,34 +1,34 @@
 {
   "page": {
-    "title": "小队",
-    "new_button": "新建小队",
-    "empty_no_match": "没有匹配筛选条件的小队。",
+    "title": "小组",
+    "new_button": "新建小组",
+    "empty_no_match": "没有匹配筛选条件的小组。",
     "table": {
-      "name": "小队",
-      "leader": "队长",
+      "name": "小组",
+      "leader": "组长",
       "members": "成员",
       "creator": "创建者",
       "created": "创建时间"
     },
-    "no_matches": "没有匹配的小队",
-    "row_menu": "小队操作",
+    "no_matches": "没有匹配的小组",
+    "row_menu": "小组操作",
     "archive_action": "归档"
   },
   "member_type": {
-    "agent": "智能体",
+    "agent": "AI 员工",
     "member": "成员"
   },
   "archive_dialog": {
-    "title": "归档这个小队？",
-    "description": "“{{name}}” 将被归档，该小队当前承接的任务会转交给小队负责人。此操作无法撤销，如需恢复路由请新建小队。",
+    "title": "归档这个小组？",
+    "description": "“{{name}}” 将被归档，该小组当前承接的任务会转交给小组负责人。此操作无法撤销，如需恢复路由请新建小组。",
     "cancel": "取消",
     "confirm": "归档",
     "archiving": "归档中…",
-    "success": "已归档小队"
+    "success": "已归档小组"
   },
   "name_editor": {
-    "title": "重命名小队",
-    "placeholder": "小队名称",
+    "title": "重命名小组",
+    "placeholder": "小组名称",
     "required": "名称不能为空",
     "cancel": "取消",
     "save": "保存",
@@ -37,15 +37,15 @@
   },
   "add_member_dialog": {
     "title": "添加成员",
-    "description": "可选择工作区成员或智能体。",
+    "description": "可选择工作区成员或 AI 员工。",
     "label_member": "成员",
     "label_role": "角色",
     "label_optional": "（可选）",
     "cancel": "取消",
-    "select_target": "选择成员或智能体",
-    "search_placeholder": "搜索成员或智能体...",
+    "select_target": "选择成员或 AI 员工",
+    "search_placeholder": "搜索成员或 AI 员工...",
     "members_section": "成员",
-    "agents_section": "智能体",
+    "agents_section": "AI 员工",
     "role_placeholder": "例如：审查者、前端负责人",
     "add": "添加"
   },
@@ -57,44 +57,44 @@
     "title": "编辑描述",
     "placeholder_empty": "添加描述",
     "cancel": "取消",
-    "responsibility_placeholder": "这个小队负责什么？",
+    "responsibility_placeholder": "这个小组负责什么？",
     "save": "保存"
   },
   "members_tab": {
     "section_title": "成员",
     "add_member_button": "添加成员",
     "empty_title": "还没有成员",
-    "empty_description": "添加智能体或成员后，分配给这个小队的任务会由他们接手。",
-    "create_agent_button": "创建智能体",
-    "leader_chip": "队长",
-    "view_agent_tooltip": "打开智能体详情",
-    "make_leader_tooltip": "设为小队负责人",
-    "remove_member_tooltip": "从小队移除",
+    "empty_description": "添加 AI 员工或成员后，分配给这个小组的任务会由他们接手。",
+    "create_agent_button": "创建 AI 员工",
+    "leader_chip": "组长",
+    "view_agent_tooltip": "打开 AI 员工详情",
+    "make_leader_tooltip": "设为小组负责人",
+    "remove_member_tooltip": "从小组移除",
     "status_working": "工作中",
     "status_idle": "空闲",
     "status_offline": "离线",
     "status_unstable": "不稳定",
     "status_archived": "已归档",
-    "issue_status_blocked": "已阻塞",
+    "issue_status_blocked": "已卡住",
     "active_issue_more": "还有 {{count}} 个"
   },
   "detail": {
     "assign_work": "分配工作",
     "copy_link": "复制链接",
     "link_copied": "已复制链接",
-    "not_found": "未找到该小队",
+    "not_found": "未找到该小组",
     "not_found_description": "它可能已被删除，或你没有访问权限。",
-    "back_to_list": "全部小队",
+    "back_to_list": "全部小组",
     "instructions": "指引",
     "edit": "编辑",
     "cancel": "取消",
     "recent_work": "近期工作",
-    "recent_work_empty": "还没有分配给这个小队的任务。",
+    "recent_work_empty": "还没有分配给这个小组的任务。",
     "member_menu": "{{name}} 的操作",
     "working_on": "正在处理"
   },
   "details": {
-    "leader": "队长",
+    "leader": "组长",
     "members": "成员",
     "created_by": "创建者",
     "created": "创建时间",
@@ -109,13 +109,13 @@
     "member_remove_failed": "移除成员失败",
     "role_updated": "角色已更新",
     "role_update_failed": "更新角色失败",
-    "leader_updated": "队长已更新",
-    "leader_update_failed": "更新队长失败",
-    "archive_failed": "归档小队失败",
+    "leader_updated": "组长已更新",
+    "leader_update_failed": "更新组长失败",
+    "archive_failed": "归档小组失败",
     "instructions_saved": "指引已保存"
   },
   "profile_card": {
-    "unavailable": "小队不可用",
+    "unavailable": "小组不可用",
     "detail_link": "详情 →",
     "archived": "已归档",
     "member_count_other": "{{count}} 名成员",
@@ -123,44 +123,44 @@
     "more_members_other": "还有 {{count}} 人"
   },
   "instructions_tab": {
-    "description": "队长每次处理分配给此小队的任务时，都会读取这些指引。",
+    "description": "组长每次处理分配给此小组的任务时，都会读取这些指引。",
     "unsaved_changes": "有未保存的修改",
     "save_button": "保存",
     "placeholder": "例如：始终先编写失败测试。提交应保持小而独立。"
   },
   "scope": {
-    "mine": "我的小队",
-    "all": "全部小队"
+    "mine": "我的小组",
+    "all": "全部小组"
   },
   "toolbar": {},
   "intro": {
-    "title": "让智能体组队，像团队一样干活",
-    "description": "把任务交给小队，队长智能体会读懂需求，按成员的角色分派下一步，并跟进到目标完成。你只需要对接一个入口。",
+    "title": "让 AI 员工组成小组，像团队一样干活",
+    "description": "把任务交给小组，组长会读懂需求，按成员的分工派下一步，并跟进到目标完成。你只需要对接一个人。",
     "slides": {
       "route": {
         "title": "一个入口，自动分派",
-        "description": "队长读懂任务后，@ 最适合下一步的成员。只有被点名的成员会开始工作。"
+        "description": "组长读懂任务后，@ 最适合做下一步的成员。只有被点名的成员会开工。"
       },
       "roles": {
         "title": "按角色分工",
-        "description": "角色描述告诉队长每位成员擅长什么。成员可以是智能体，也可以是人。"
+        "description": "分工说明告诉组长每位成员擅长什么。成员可以是 AI 员工，也可以是真人同事。"
       },
       "progress": {
         "title": "进展集中在一处",
-        "description": "小队详情页列出近期的任务，以及每位成员正在做什么。"
+        "description": "小组详情页列出近期的任务，以及每位成员正在做什么。"
       }
     },
     "art": {
       "assignee": "负责人",
-      "squad_name": "前端小队",
-      "issue_dark_mode": "设置页支持深色模式切换",
-      "issue_board_columns": "看板列宽可拖拽调整",
-      "issue_inbox_gestures": "移动端收件箱手势",
-      "issue_paste_images": "评论支持粘贴图片",
-      "delegating": "按角色挑选成员...",
-      "role_frontend": "前端",
-      "role_testing": "测试",
-      "role_product": "产品"
+      "squad_name": "美国站运营小组",
+      "issue_dark_mode": "黑五主推款定价方案",
+      "issue_board_columns": "Listing 标题与五点优化",
+      "issue_inbox_gestures": "竞品差评归纳",
+      "issue_paste_images": "广告预算重新分配",
+      "delegating": "按分工挑选成员...",
+      "role_frontend": "文案",
+      "role_testing": "审核",
+      "role_product": "调研"
     }
   }
 }

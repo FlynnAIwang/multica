@@ -43,7 +43,7 @@
     "no_lead": "无负责人",
     "assign_placeholder": "指派负责人...",
     "members_group": "成员",
-    "agents_group": "智能体",
+    "agents_group": "AI 员工",
     "no_results": "未找到结果"
   },
   "relative_date": {
@@ -72,7 +72,7 @@
     "no_start_date": "无开始日期",
     "no_due_date": "无截止日期",
     "description_placeholder": "添加描述...",
-    "description_hint": "会作为项目上下文提供给智能体，应用于该项目下的每次运行。",
+    "description_hint": "会作为项目上下文提供给 AI 员工，应用于该项目下的每次运行。",
     "empty_issues_title": "这个项目还没有任务",
     "empty_issues_hint": "新建一个，或把已有任务移进来。",
     "empty_issues_new_button": "新建任务",
@@ -98,18 +98,18 @@
     "toast_removed": "已移除资源",
     "toast_remove_failed": "移除资源失败",
     "add_local_directory_button": "添加本地目录",
-    "local_daemon_offline_hint": "启动本地守护进程后才能添加本机目录。",
+    "local_daemon_offline_hint": "启动本地后台服务后才能添加本机目录。",
     "local_daemon_already_attached_hint": "本机已经关联了一个本地目录到该项目，先移除现有目录再添加新目录。",
-    "local_no_daemon_tooltip": "尚未识别到本机守护进程，智能体暂时无法打开此目录。",
+    "local_no_daemon_tooltip": "尚未识别到本机后台服务，AI 员工暂时无法打开此目录。",
     "local_other_machine_tooltip": "此目录仅在最初注册它的电脑上可用。",
-    "chat_hint_prefix": "智能体将直接在以下目录中工作：",
-    "chat_hint_worktree_prefix": "智能体将在以下仓库的独立 worktree 中工作：",
+    "chat_hint_prefix": "AI 员工将直接在以下目录中工作：",
+    "chat_hint_worktree_prefix": "AI 员工将在以下仓库的独立 worktree 中工作：",
     "chat_hint_worktree_note": "不会改动你的工作副本，每次运行的结果以 agent/… 分支交回。",
     "toast_local_attached": "已添加本地目录",
     "toast_local_pick_failed": "选择目录失败",
     "toast_local_already_attached": "该目录已经在本机关联到此项目。",
     "toast_local_daemon_already_attached": "本机已经关联了一个本地目录到该项目，先移除现有目录再添加新目录。",
-    "toast_local_daemon_not_running": "本地守护进程未运行。",
+    "toast_local_daemon_not_running": "本地后台服务未运行。",
     "local_validate_not_absolute": "请选择绝对路径。",
     "local_validate_not_found": "目录不存在。",
     "local_validate_not_a_directory": "该路径不是目录。",
@@ -117,9 +117,9 @@
     "local_validate_not_writable": "目录不可写。",
     "local_validate_unsupported": "本地目录仅能在桌面端选择。",
     "mode_dialog_title": "每次运行如何使用这个文件夹？",
-    "mode_dialog_description": "这决定了你如何拿到智能体的工作成果，以及这个文件夹上的运行能否并行。",
+    "mode_dialog_description": "这决定了你如何拿到 AI 员工的工作成果，以及这个文件夹上的运行能否并行。",
     "mode_in_place_title": "直接修改这个文件夹",
-    "mode_in_place_description": "同一时间只处理一次运行。智能体的改动会直接出现在你的工作区里，你可以接着改。",
+    "mode_in_place_description": "同一时间只处理一次运行。AI 员工的改动会直接出现在你的工作区里，你可以接着改。",
     "mode_worktree_title": "并行隔离运行",
     "mode_worktree_description": "运行可以并行，互不干扰，也不会改动你的工作区。每次运行的结果都是这个仓库里的一个 agent/… 分支，由你 review 后合并。",
     "mode_worktree_needs_git": "这个文件夹不是 git 仓库，分支无处可放。请选择一个仓库，或者继续直接修改这个文件夹。",
@@ -176,15 +176,15 @@
   },
   "intro": {
     "title": "把一件大事拆成项目来推进",
-    "description": "项目把相关任务收在一起，统一看进度。项目描述和关联的仓库会作为上下文，自动带进每一次智能体运行。",
+    "description": "项目把相关任务收在一起，统一看进度。项目背景和参考资料会自动带给每一位接手的 AI 员工。",
     "slides": {
       "progress": {
         "title": "进度一眼看清",
         "description": "状态、负责人、截止日期和完成比例都在一张卡上，不用逐个翻任务。"
       },
       "context": {
-        "title": "上下文自动带给智能体",
-        "description": "写一次项目描述、关联一次仓库，项目里每个任务的运行都会带上。"
+        "title": "背景资料自动带给 AI 员工",
+        "description": "项目背景写一次、资料挂一次，项目里每个任务都会自动带上，不用反复交代。"
       },
       "sidebar": {
         "title": "钉在侧栏，随手进入",
@@ -192,17 +192,17 @@
       }
     },
     "art": {
-      "project_website": "官网改版",
-      "project_mobile": "移动端 1.0",
-      "project_onboarding": "新手引导",
-      "context_label": "项目描述",
-      "context_body": "新版官网，Next.js + Tailwind。文案以 docs/brand 为准，所有页面都要支持深色模式。",
-      "run_started": "开始运行",
-      "context_loaded": "已载入项目上下文和 2 个仓库",
+      "project_website": "黑五大促备战",
+      "project_mobile": "PW-5 新品上架",
+      "project_onboarding": "差评专项治理",
+      "context_label": "项目背景",
+      "context_body": "美国站宠物饮水机，黑五目标日销 300 单。主推 PW-5，预算以 11 月广告计划为准，所有 Listing 改动先过合规检查。",
+      "run_started": "开始干活",
+      "context_loaded": "已带上项目背景和 2 份资料",
       "issue_count": "{{done}} / {{total}} 个任务",
-      "issue_hero": "首页 Hero 动效",
-      "issue_pricing": "定价页对比表",
-      "issue_blog": "博客列表分页"
+      "issue_hero": "主图与 A+ 页面更新",
+      "issue_pricing": "竞品价格对比表",
+      "issue_blog": "广告关键词扩词"
     }
   }
 }

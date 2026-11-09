@@ -109,7 +109,7 @@ beforeEach(() => {
   vi.mocked(api.listAutopilots).mockReset().mockResolvedValue({
     autopilots: [
       autopilot("a1", "Daily sync", "active"),
-      autopilot("a2", "Bug triage", "active"),
+      autopilot("a2", "Review & complaint triage", "active"),
       autopilot("a3", "Weekly report", "paused"),
       autopilot("a4", "Old digest", "archived"),
     ],
@@ -171,7 +171,7 @@ describe("AutopilotsPage", () => {
   it("consumes ?template once and keeps the other params", async () => {
     mount("/ws/autopilots?template=bug_triage&keep=yes");
 
-    expect(await screen.findByRole("dialog")).toHaveTextContent("Bug triage");
+    expect(await screen.findByRole("dialog")).toHaveTextContent("Review & complaint triage");
     await waitFor(() => expect(currentPath).toBe("/ws/autopilots?keep=yes"));
   });
 
@@ -183,12 +183,12 @@ describe("AutopilotsPage", () => {
     const templates = await screen.findByRole("list", { name: "Start from a template" });
     expect(screen.getByRole("heading", { name: "Let agents start work on their own" })).toBeVisible();
     expect(within(templates).getAllByRole("button")).toHaveLength(6);
-    expect(within(templates).getByRole("button", { name: /Bug triage/ })).toHaveTextContent(
+    expect(within(templates).getByRole("button", { name: /Review & complaint triage/ })).toHaveTextContent(
       /Mon–Fri/,
     );
 
-    await user.click(within(templates).getByRole("button", { name: /Bug triage/ }));
-    expect(await screen.findByRole("dialog")).toHaveTextContent("Bug triage");
+    await user.click(within(templates).getByRole("button", { name: /Review & complaint triage/ }));
+    expect(await screen.findByRole("dialog")).toHaveTextContent("Review & complaint triage");
   });
 
   it("keeps create reachable when the list fails to load", async () => {

@@ -4,7 +4,6 @@ import {
   AlarmClock,
   CalendarClock,
   Clock,
-  GitMerge,
   GitPullRequest,
   Plus,
   type IconComponent,
@@ -25,9 +24,10 @@ import { useLocale, useT } from "../../i18n";
 import { parseCron } from "./schedule-editor/cron-mapping";
 import { useDescribeSchedule } from "./schedule-editor/describe";
 
-const TURING = { name: "Turing", initials: "T", avatarUrl: formatAvatarEmoji("🧩"), isAgent: true };
-const ISSUE_ID = "MUL-219";
-const PR_NUMBER = "#284";
+const TURING = { name: "运营小助", initials: "运", avatarUrl: formatAvatarEmoji("🧩"), isAgent: true };
+const ISSUE_ID = "WM-219";
+// 稳卖：示例改为“等前置任务完成”，不再用 PR 合并
+const PR_NUMBER = "WM-230";
 const WAKE_AT = new Date(2026, 10, 5, 14, 0);
 const WEEKDAYS_AT_NINE = "0 9 * * 1-5";
 
@@ -96,11 +96,7 @@ function EventArt() {
         </div>
         <div className="mt-2 flex items-center gap-1.5 pl-5.5 text-muted-foreground">
           <AlarmClock className="size-3 shrink-0" />
-          <span className="truncate">{tIssues(($) => $.wakeups.cond.pr_merged)}</span>
-          <IntroArtTag>
-            <GitMerge className="size-3" />
-            {PR_NUMBER}
-          </IntroArtTag>
+          <span className="truncate">{tIssues(($) => $.wakeups.cond.other_done, { issue: PR_NUMBER })}</span>
         </div>
       </IntroArtCard>
       <IntroArtConnector />
@@ -169,8 +165,8 @@ function EndsArt() {
   const { t } = useT("autopilots");
   const rows = [
     { id: ISSUE_ID, status: "in_progress", title: t(($) => $.wakeups.intro.art.issue_inbox), ended: false },
-    { id: "MUL-224", status: "in_review", title: t(($) => $.wakeups.intro.art.issue_board), ended: false },
-    { id: "MUL-207", status: "done", title: t(($) => $.wakeups.intro.art.issue_paste), ended: true },
+    { id: "WM-224", status: "in_review", title: t(($) => $.wakeups.intro.art.issue_board), ended: false },
+    { id: "WM-207", status: "done", title: t(($) => $.wakeups.intro.art.issue_paste), ended: true },
   ];
   return (
     <IntroArtCard className="p-1.5">

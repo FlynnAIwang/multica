@@ -35,28 +35,28 @@
   },
   "templates": {
     "daily_news": {
-      "title": "Daily news digest",
-      "summary": "Search and summarize today's news for the team"
+      "title": "Daily marketplace news",
+      "summary": "Summarize today's platform policy and industry news for the team"
     },
     "pr_review": {
-      "title": "PR review reminder",
-      "summary": "Flag stale pull requests that need review"
+      "title": "Competitor price watch",
+      "summary": "Track competitors' prices, promotions and rankings every day"
     },
     "bug_triage": {
-      "title": "Bug triage",
-      "summary": "Assess and prioritize new bug reports"
+      "title": "Review & complaint triage",
+      "summary": "Sort new negative reviews and complaints, rate severity, suggest fixes"
     },
     "weekly_progress": {
-      "title": "Weekly progress report",
-      "summary": "Compile a weekly summary of team progress"
+      "title": "Weekly business report",
+      "summary": "Summarize this week's sales, ads and team progress"
     },
     "dependency_audit": {
-      "title": "Dependency audit",
-      "summary": "Scan for security vulnerabilities and outdated packages"
+      "title": "Stock-out alert",
+      "summary": "Check days of inventory left and flag SKUs that need restocking"
     },
     "documentation_check": {
-      "title": "Documentation check",
-      "summary": "Review recent changes for documentation gaps"
+      "title": "Listing health check",
+      "summary": "Find banned words, missing images or inconsistent listing info"
     }
   },
   "detail": {

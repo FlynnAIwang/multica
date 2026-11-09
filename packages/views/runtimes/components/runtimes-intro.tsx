@@ -15,16 +15,16 @@ import {
 import { useT } from "../../i18n";
 import { ProviderLogo } from "./provider-logo";
 
-const MACHINE = "studio-mbp";
-const REMOTE_MACHINE = "ci-runner-02";
+const MACHINE = "办公室 Mac mini";
+const REMOTE_MACHINE = "公司服务器-02";
 const DETECTED = ["claude", "codex", "cursor", "copilot"];
 const SETUP_COMMANDS = [
   "curl -fsSL …/multica/main/scripts/n | bash",
   "multica setup",
 ];
 const CLOUD_NODES = [
-  { name: "cloud-node-01", spec: "t3.medium · ap-southeast-1", online: true },
-  { name: "cloud-node-02", spec: "t3.large · ap-northeast-1", online: false },
+  { name: "云端电脑-01", spec: "标准配置 · 新加坡", online: true },
+  { name: "云端电脑-02", spec: "高配 · 东京", online: false },
 ];
 
 export function RuntimesIntro({

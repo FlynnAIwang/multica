@@ -19,7 +19,7 @@
  */
 export const INSTALL_RUNTIME_ISSUE_TITLE = {
   en: "Connect a runtime to start with Mika",
-  zh: "连接运行时，和 Mika 开始",
+  zh: "连接运行环境，和 Mika 开始",
   ko: "runtime을 연결하고 Mika와 시작하기",
   ja: "runtime を接続して Mika と始める",
 } as const;
@@ -68,20 +68,20 @@ Mika will turn one real goal into an issue, start it with the right agent, and s
 
 const zh = `欢迎来到 Multica。
 
-智能体需要先连上运行时才能执行工作。运行时还没准备好时,你也可以先把 Multica 当作轻量项目管理工具体验起来。
+AI 员工需要先连上运行环境才能执行工作。运行环境还没准备好时,你也可以先把 Multica 当作轻量项目管理工具体验起来。
 
 ## 先体验项目管理功能
 
-运行时安装前,你可以先做这些事:
+运行环境安装前,你可以先做这些事:
 
 1. 为当前工作创建一个项目。
 2. 新建几个任务,并在 backlog、todo、in_progress、done 之间流转。
 3. 给任务加优先级、标签、评论和订阅。
 4. 用收件箱追踪分配给你的事项和 @mention。
 
-这样你先熟悉项目管理层。连上运行时后,智能体会直接在这些任务上开始工作。
+这样你先熟悉项目管理层。连上运行环境后,AI 员工会直接在这些任务上开始工作。
 
-## 安装第一个 Agent 运行时
+## 安装第一个 AI 员工的运行环境
 
 完整文档:https://multica.ai/docs/install-agent-runtime
 
@@ -103,12 +103,12 @@ Windows 用户请先安装 [Git for Windows](https://gitforwindows.org/)，Kimi 
    想立刻生效:
    multica daemon restart
    桌面端请打开任意一个本机 runtime 并点 Restart。退出再打开 app 是不够的 —— 守护进程会继续在后台运行。
-6. 回到 Runtimes 页面刷新。你应该能看到一个在线的 Kimi 运行时。
-7. 打开"运行时"页面。页面会显示 **和 Mika 开始**；点击后会创建 Mika，并进入引导式的首次对话。
+6. 回到「运行环境」页面刷新。你应该能看到一个在线的 Kimi 运行环境。
+7. 打开「运行环境」页面。页面会显示 **和 Mika 开始**；点击后会创建 Mika，并进入引导式的首次对话。
 
 Kimi CLI 官方文档:https://moonshotai.github.io/kimi-cli/zh/guides/getting-started.html
 
-Mika 会把一个真实目标转化为任务，交给合适的智能体启动执行，并在工作流需要时建议添加可复用的 specialist。`;
+Mika 会把一个真实目标转化为任务，交给合适的 AI 员工启动执行，并在工作流需要时建议添加可复用的专项 AI 员工。`;
 
 const ko = `Multica에 오신 것을 환영합니다.
 
