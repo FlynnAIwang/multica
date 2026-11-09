@@ -1,5 +1,7 @@
 "use client";
 
+import { useIssueStatuses } from "@multica/core/issue-statuses/hooks";
+import { statusColorProps } from "../../issues/components/status-icon";
 import {
   IssueAgentActivityIndicator,
 } from "../../issues/components/issue-agent-activity-indicator";
@@ -58,6 +60,8 @@ export function InboxListItem({
   const typeLabels = useTypeLabels();
   // Inbox is a cross-workspace surface, so the catalog is read against the
   // item's OWN workspace rather than the route's. (MUL-6243)
+  const { categoryOf: statusCategoryOf, colorOf: statusColorOf } =
+    useIssueStatuses(item.workspace_id);
   const statusLabelOf = useStatusLabel(item.workspace_id);
   const openContextMenu = useInboxContextMenu();
   // Null-safe slug (not useWorkspacePaths, which throws): the row renders in
@@ -87,6 +91,15 @@ export function InboxListItem({
   // coloured glyph on the right. The status now appears once, as plain text,
   // so the detail line is dropped for this type.
   const showDetail = item.type !== "status_changed";
+  // Same colour the workflow draws this status in (MUL-6395: a custom status
+  // carries its own colour, built-ins keep their semantic token).
+  const statusColor = item.issue_status
+    ? statusColorProps({
+        status: item.issue_status,
+        category: statusCategoryOf(item.issue_status),
+        color: statusColorOf(item.issue_status),
+      })
+    : null;
 
   return (
     // A div, not a <button>: the row carries its own controls (the action
@@ -186,12 +199,17 @@ export function InboxListItem({
             )}
           </div>
           {/* 稳卖: the issue's progress is written out ("进行中", "待验收")
-              instead of a coloured progress-ring glyph, which first-time
-              business users could not decode. */}
+              instead of a progress-ring glyph, which first-time business
+              users could not decode — but keeps the workflow's colour per
+              status so the two still read as the same thing. */}
           <div className="flex shrink-0 items-center gap-1 text-caption text-muted-foreground">
             {item.issue_status && (
               <>
-                <span data-testid="inbox-status-text">
+                <span
+                  data-testid="inbox-status-text"
+                  className={statusColor?.className}
+                  style={statusColor?.style}
+                >
                   {statusLabelOf(item.issue_status)}
                 </span>
                 <span aria-hidden="true">·</span>

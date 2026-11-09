@@ -374,6 +374,34 @@ describe("InboxListItem status text", () => {
     expect(getByTestId("inbox-status-text").textContent).toBe("label");
   });
 
+  it("colours a built-in status with the workflow's token for that status", () => {
+    catalogEntries = [IN_REVIEW_BUILT_IN, HUMAN_REVIEW];
+
+    const review = renderRow({
+      item: item({ issue_status: "in_review" }),
+      view: "inbox",
+    });
+    expect(review.getByTestId("inbox-status-text").className).toContain("text-success");
+    review.unmount();
+
+    const progress = renderRow({
+      item: item({ issue_status: "in_progress" }),
+      view: "inbox",
+    });
+    expect(progress.getByTestId("inbox-status-text").className).toContain("text-warning");
+  });
+
+  it("colours a custom status with its own catalog colour", () => {
+    catalogEntries = [IN_REVIEW_BUILT_IN, HUMAN_REVIEW];
+
+    const { getByTestId } = renderRow({
+      item: item({ issue_status: "human_review" }),
+      view: "inbox",
+    });
+
+    expect(getByTestId("inbox-status-text").style.color).toBe("rgb(255, 0, 0)");
+  });
+
   it("still names a custom status before the catalog lands", () => {
     catalogEntries = undefined;
 
