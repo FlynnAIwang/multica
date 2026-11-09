@@ -1,7 +1,5 @@
 "use client";
 
-import { useIssueStatuses } from "@multica/core/issue-statuses/hooks";
-import { StatusIcon } from "../../issues/components";
 import {
   IssueAgentActivityIndicator,
 } from "../../issues/components/issue-agent-activity-indicator";
@@ -60,8 +58,6 @@ export function InboxListItem({
   const typeLabels = useTypeLabels();
   // Inbox is a cross-workspace surface, so the catalog is read against the
   // item's OWN workspace rather than the route's. (MUL-6243)
-  const { categoryOf: statusCategoryOf, colorOf: statusColorOf, iconOf: statusIconOf } =
-    useIssueStatuses(item.workspace_id);
   const statusLabelOf = useStatusLabel(item.workspace_id);
   const openContextMenu = useInboxContextMenu();
   // Null-safe slug (not useWorkspacePaths, which throws): the row renders in
@@ -86,13 +82,11 @@ export function InboxListItem({
     ? t(($) => $.list.unarchive_tooltip)
     : t(($) => $.list.archive_tooltip);
   const actorType = item.actor_type ?? item.recipient_type;
-  // The glyph is per CATEGORY, so it alone cannot tell "In Review" from a
-  // custom "Human Review" — moving between two statuses of the same category
-  // left this row pixel-identical and read as "the inbox never updated"
-  // (MUL-6395). Colour is what carries a custom status's own identity, exactly
-  // as the status-changed detail label already renders it. `colorOf` returns
-  // null for a built-in, which keeps it on its semantic token.
-  const statusColor = item.issue_status ? statusColorOf(item.issue_status) : null;
+  // 稳卖 (business-user simplification): a status-change notification used to
+  // print "状态设为 ◐ 进行中" on the detail line AND repeat the same status as a
+  // coloured glyph on the right. The status now appears once, as plain text,
+  // so the detail line is dropped for this type.
+  const showDetail = item.type !== "status_changed";
 
   return (
     // A div, not a <button>: the row carries its own controls (the action
@@ -175,43 +169,35 @@ export function InboxListItem({
           </div>
         </div>
         <div className="mt-0.5 flex items-center justify-between gap-2">
-          <p className={`min-w-0 overflow-hidden text-ellipsis whitespace-nowrap text-caption ${showUnread ? "text-muted-foreground" : "text-muted-foreground"}`}>
-            <InboxDetailLabel item={item} />
-          </p>
-          <div className="flex shrink-0 items-center gap-1.5">
-            {/* Badge only, no hover card (MUL-5189). "An agent is on this"
-                is worth showing while triaging; the card behind it adds only
-                elapsed time, which does not change whether you open the row.
-                The row already carries the ActorAvatar hover card on the
-                left, so a second popup here was mostly noise. */}
+          {/* 稳卖: "an agent is on this" leads the detail line, left-aligned,
+              so it is the first thing read after the title. Badge only, no
+              hover card (MUL-5189). */}
+          <div className="flex min-w-0 items-center gap-1.5">
             {item.issue_id && (
               <IssueAgentActivityIndicator
                 issueId={item.issue_id}
                 hoverCard={false}
               />
             )}
-            {/* On the detail line rather than the title's, so the title keeps
-                the whole first line to itself. */}
-            {item.issue_status && (
-              // Icon-only, like every other issue row — but a colour is not a
-              // name, and this row has no space for the CustomStatusChip the
-              // board card and list row carry. `title` is that name.
-              <span
-                title={statusLabelOf(item.issue_status)}
-                className="flex shrink-0 items-center"
-              >
-                <StatusIcon
-                  status={item.issue_status}
-                  category={statusCategoryOf(item.issue_status)}
-                  color={statusColor}
-                  icon={item.issue_status ? statusIconOf(item.issue_status) : null}
-                  className="h-3.5 w-3.5 shrink-0"
-                />
-              </span>
+            {showDetail && (
+              <p className="min-w-0 overflow-hidden text-ellipsis whitespace-nowrap text-caption text-muted-foreground">
+                <InboxDetailLabel item={item} />
+              </p>
             )}
-            <span className={`text-caption ${showUnread ? "text-muted-foreground" : "text-muted-foreground"}`}>
-              {timeAgo(item.created_at)}
-            </span>
+          </div>
+          {/* 稳卖: the issue's progress is written out ("进行中", "待验收")
+              instead of a coloured progress-ring glyph, which first-time
+              business users could not decode. */}
+          <div className="flex shrink-0 items-center gap-1 text-caption text-muted-foreground">
+            {item.issue_status && (
+              <>
+                <span data-testid="inbox-status-text">
+                  {statusLabelOf(item.issue_status)}
+                </span>
+                <span aria-hidden="true">·</span>
+              </>
+            )}
+            <span>{timeAgo(item.created_at)}</span>
           </div>
         </div>
       </div>

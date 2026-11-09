@@ -19,24 +19,6 @@ vi.mock("@multica/core/issue-statuses/hooks", () => ({
   useIssueStatuses: () => buildIssueStatusCatalog(catalogEntries),
 }));
 
-vi.mock("../../issues/components", () => ({
-  StatusIcon: ({
-    status,
-    category,
-    color,
-  }: {
-    status: string;
-    category?: string;
-    color?: string | null;
-  }) => (
-    <span
-      data-testid="status-icon"
-      data-status={status}
-      data-category={category ?? ""}
-      data-color={color ?? ""}
-    />
-  ),
-}));
 vi.mock("../../issues/components/issue-agent-activity-indicator", () => ({
   IssueAgentActivityIndicator: ({
     issueId,
@@ -71,7 +53,7 @@ vi.mock("../../common/actor-avatar", () => ({
   ),
 }));
 vi.mock("./inbox-detail-label", () => ({
-  InboxDetailLabel: () => null,
+  InboxDetailLabel: () => <span data-testid="inbox-detail-label" />,
   useTypeLabels: () => ({
     autopilot_paused: "Autopilot paused",
     autopilot_quota_exceeded: "Autopilot run limit reached",
@@ -336,11 +318,9 @@ describe("InboxListItem link semantics", () => {
 
 
 // ---------------------------------------------------------------------------
-// MUL-6395 — the row's only status affordance is one glyph, and the glyph set
-// is per CATEGORY. Without the status's own colour, switching an issue between
-// two statuses that share a category (built-in "In Review" → custom "Human
-// Review") repainted the row identically, so the inbox looked like it had
-// simply not picked the change up.
+// 稳卖 business-user simplification. The row used to say a status twice — the
+// "状态设为 ◐ 进行中" detail line plus a coloured progress-ring glyph — and new
+// users could not read the glyph. Status is now written out once as text.
 // ---------------------------------------------------------------------------
 
 const IN_REVIEW_BUILT_IN: IssueStatusEntry = {
@@ -368,23 +348,20 @@ const HUMAN_REVIEW: IssueStatusEntry = {
   position: 1,
 };
 
-describe("InboxListItem status glyph", () => {
-  it("paints a custom status in its own colour", () => {
+describe("InboxListItem status text", () => {
+  it("writes a custom status out by name instead of drawing a glyph", () => {
     catalogEntries = [IN_REVIEW_BUILT_IN, HUMAN_REVIEW];
 
-    const { getByTestId } = renderRow({
+    const { getByTestId, queryByTestId } = renderRow({
       item: item({ issue_status: "human_review" }),
       view: "inbox",
     });
 
-    const icon = getByTestId("status-icon");
-    expect(icon.getAttribute("data-category")).toBe("started");
-    expect(icon.getAttribute("data-color")).toBe("#ff0000");
+    expect(getByTestId("inbox-status-text").textContent).toBe("Human Review");
+    expect(queryByTestId("status-icon")).toBeNull();
   });
 
-  it("leaves a built-in status on its semantic token colour", () => {
-    // The catalog seeds a colour for the built-ins too, but those are theme
-    // tokens in the UI — passing the seeded hex would hard-code one theme.
+  it("resolves a built-in status through i18n", () => {
     catalogEntries = [IN_REVIEW_BUILT_IN, HUMAN_REVIEW];
 
     const { getByTestId } = renderRow({
@@ -392,23 +369,12 @@ describe("InboxListItem status glyph", () => {
       view: "inbox",
     });
 
-    expect(getByTestId("status-icon").getAttribute("data-color")).toBe("");
+    // useT is stubbed to return "label" — the point is it is not the
+    // server-seeded English name.
+    expect(getByTestId("inbox-status-text").textContent).toBe("label");
   });
 
-  it("names the status, so two statuses in one category stay distinguishable", () => {
-    catalogEntries = [IN_REVIEW_BUILT_IN, HUMAN_REVIEW];
-
-    const { container } = renderRow({
-      item: item({ issue_status: "human_review" }),
-      view: "inbox",
-    });
-
-    expect(container.querySelector('[title="Human Review"]')).not.toBeNull();
-  });
-
-  it("still renders a custom status before the catalog lands", () => {
-    // categoryOf falls back to `unstarted` for an unresolved key; the row must show
-    // the glyph anyway rather than dropping the status entirely.
+  it("still names a custom status before the catalog lands", () => {
     catalogEntries = undefined;
 
     const { getByTestId } = renderRow({
@@ -416,8 +382,40 @@ describe("InboxListItem status glyph", () => {
       view: "inbox",
     });
 
-    const icon = getByTestId("status-icon");
-    expect(icon.getAttribute("data-status")).toBe("human_review");
-    expect(icon.getAttribute("data-color")).toBe("");
+    expect(getByTestId("inbox-status-text").textContent).toBe("human_review");
+  });
+
+  it("shows no status text for a notification without one", () => {
+    catalogEntries = undefined;
+
+    const { queryByTestId } = renderRow({ item: item(), view: "inbox" });
+
+    expect(queryByTestId("inbox-status-text")).toBeNull();
+  });
+
+  it("drops the 'set status to' detail line for a status change", () => {
+    const { queryByTestId } = renderRow({
+      item: item({ type: "status_changed", details: { to: "in_progress" } }),
+      view: "inbox",
+    });
+
+    expect(queryByTestId("inbox-detail-label")).toBeNull();
+  });
+
+  it("keeps the detail line for other notification types", () => {
+    const { getByTestId } = renderRow({ item: item(), view: "inbox" });
+
+    expect(getByTestId("inbox-detail-label")).not.toBeNull();
+  });
+
+  it("puts the agent activity badge ahead of the detail line, on the left", () => {
+    const { getByTestId } = renderRow({ item: item(), view: "inbox" });
+
+    const badge = getByTestId("issue-agent-activity");
+    const detail = getByTestId("inbox-detail-label");
+    expect(
+      badge.compareDocumentPosition(detail) & Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy();
+    expect(badge.parentElement).toBe(detail.parentElement?.parentElement);
   });
 });
