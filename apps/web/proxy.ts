@@ -106,6 +106,14 @@ export function proxy(req: NextRequest) {
     return NextResponse.redirect(url);
   }
 
+  // --- 稳卖：根路径直接进入产品，不展示 Multica 官网落地页 ---
+  // 未登录（或还没打开过工作区）时去登录页；/login 会再根据工作区列表跳转。
+  if (pathname === "/" && !isOfficialMarketingHost(req.nextUrl.hostname)) {
+    const url = req.nextUrl.clone();
+    url.pathname = "/login";
+    return NextResponse.redirect(url);
+  }
+
   // --- Default: forward locale header to RSC, no redirect/rewrite ---
   // Covers logged-out root path, /login, /:slug/*, and everything else.
   return nextWithLocale(req);
