@@ -104,7 +104,7 @@ describe("WakeupCreateForm", () => {
     await chooseCondition("在某个时间");
     fireEvent.change(screen.getByLabelText("唤醒后要做什么"), { target: { value: "看一下 CI" } });
     fireEvent.click(screen.getByRole("button", { name: /创建/ }));
-    expect(screen.getByRole("alert")).toHaveTextContent("请选择要唤醒的 AI 员工");
+    expect(screen.getByRole("alert")).toHaveTextContent("请选择要唤醒的智能体");
   });
 
   it("gives a recurring check an end date and no timeout choice", async () => {

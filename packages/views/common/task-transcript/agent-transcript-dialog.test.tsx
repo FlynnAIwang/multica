@@ -283,7 +283,7 @@ describe("AgentTranscriptDialog", () => {
 
   it.each([
     { locale: "en", label: "Agent", model: "Model" },
-    { locale: "zh-Hans", label: "AI 员工", model: "模型" },
+    { locale: "zh-Hans", label: "智能体", model: "模型" },
     { locale: "ja", label: "エージェント", model: "モデル" },
     { locale: "ko", label: "에이전트", model: "모델" },
     { locale: "fr", label: "Agent", model: "Modèle" },

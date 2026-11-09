@@ -351,7 +351,7 @@ it("names the monitored member in the condition and details", async () => {
   const trigger = screen.getByRole("button", { name: /由 Jiayuan 触发/ });
   expect(trigger).toHaveTextContent("Jiayuan");
   fireEvent.click(trigger);
-  await waitFor(() => expect(screen.getByText(/监听的成员或 AI 员工/)).toBeVisible());
+  await waitFor(() => expect(screen.getByText(/监听的成员或智能体/)).toBeVisible());
   expect(screen.getByText(/以下任一事件发生时/)).toHaveTextContent("由 Jiayuan 触发");
 });
 

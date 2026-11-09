@@ -10,11 +10,11 @@
       },
       "used": {
         "label": "使用中",
-        "description": "至少分配给一个 AI 员工的技能"
+        "description": "至少分配给一个智能体的技能"
       },
       "unused": {
         "label": "未使用",
-        "description": "未分配给任何 AI 员工的技能"
+        "description": "未分配给任何智能体的技能"
       },
       "mine": {
         "label": "我的技能",
@@ -55,20 +55,20 @@
   },
   "actions": {
     "row_menu": "操作",
-    "add_to_agent": "添加到 AI 员工",
+    "add_to_agent": "添加到智能体",
     "refresh": "从来源更新",
-    "my_agents": "我的 AI 员工",
-    "other_agents": "其他 AI 员工",
-    "no_agents": "暂无可用 AI 员工",
-    "search_placeholder": "搜索 AI 员工…",
-    "no_agents_match": "没有匹配的 AI 员工。",
+    "my_agents": "我的智能体",
+    "other_agents": "其他智能体",
+    "no_agents": "暂无可用智能体",
+    "search_placeholder": "搜索智能体…",
+    "no_agents_match": "没有匹配的智能体。",
     "has_partial": "已有 {{owned}}/{{total}}",
     "added_toast": "已添加到 {{name}}",
     "add_failed_toast": "添加技能失败",
     "delete": "删除",
     "delete_no_permission": "选中项包含仅创建者或管理员可删除的技能",
     "delete_dialog_title_other": "删除 {{count}} 个技能？",
-    "delete_dialog_desc_other": "将永久删除选中的 {{count}} 个技能，并从所有 AI 员工上移除。",
+    "delete_dialog_desc_other": "将永久删除选中的 {{count}} 个技能，并从所有智能体上移除。",
     "deleted_toast_other": "已删除 {{count}} 个技能",
     "delete_failed_toast": "删除技能失败",
     "update": "更新",
@@ -83,7 +83,7 @@
     "cancel": "取消",
     "add_confirm": "添加（{{num}}）",
     "adding": "添加中...",
-    "added_multi_toast_other": "已添加到 {{count}} 个 AI 员工"
+    "added_multi_toast_other": "已添加到 {{count}} 个智能体"
   },
   "toolbar": {
     "section_usage": "使用状态",
@@ -99,7 +99,7 @@
     "supporting_data_warning": "部分工作区数据加载失败。创建者归属、运行环境名称、编辑权限可能要等下次刷新才完整。",
     "delete_file": "删除文件",
     "name_placeholder": "skill-name",
-    "description_placeholder": "用一句话描述 AI 员工什么时候应该使用这个 skill...",
+    "description_placeholder": "用一句话描述智能体什么时候应该使用这个 skill...",
     "subline": {
       "origin_runtime_named": "本地运行环境 · {{name}}",
       "origin_runtime_provider": "本地运行环境 · {{provider}}",
@@ -140,7 +140,7 @@
       "dialog": {
         "title": "从来源更新这个技能？",
         "description": "将从 {{source}} 重新下载\"{{name}}\"，并用最新版本替换它的名称、描述、SKILL.md 和文件。",
-        "warning": "对这个技能的本地修改将被覆盖。AI 员工分配、标签和创建者保持不变。",
+        "warning": "对这个技能的本地修改将被覆盖。智能体分配、标签和创建者保持不变。",
         "cancel": "取消",
         "confirm": "更新",
         "refreshing": "更新中..."
@@ -148,8 +148,8 @@
     },
     "delete_dialog": {
       "title": "删除这个技能？",
-      "description_with_agents_other": "将永久删除\"{{name}}\"，并从当前正在使用它的 {{count}} 个 AI 员工上移除。",
-      "description_no_agents": "将永久删除\"{{name}}\"，并从所有 AI 员工上移除。",
+      "description_with_agents_other": "将永久删除\"{{name}}\"，并从当前正在使用它的 {{count}} 个智能体上移除。",
+      "description_no_agents": "将永久删除\"{{name}}\"，并从所有智能体上移除。",
       "warning": "此操作不可撤销。",
       "cancel": "取消",
       "confirm": "永久删除",
@@ -176,10 +176,10 @@
       "properties": "属性",
       "name": "名称",
       "description": "描述",
-      "description_hint": "AI 员工据此决定何时加载技能。",
+      "description_hint": "智能体据此决定何时加载技能。",
       "labels": "标签",
-      "used_by_empty": "还未分配给任何 AI 员工。打开某个 AI 员工的技能标签页进行分配。",
-      "permissions_owner": "你可以编辑和删除该技能。改动将在 AI 员工下次运行时生效。",
+      "used_by_empty": "还未分配给任何智能体。打开某个智能体的技能标签页进行分配。",
+      "permissions_owner": "你可以编辑和删除该技能。改动将在智能体下次运行时生效。",
       "permissions_locked_creator": "只有创建者（{{name}}）或工作区管理员可以编辑该技能。",
       "permissions_locked": "只有创建者或工作区管理员可以编辑该技能。",
       "character_count": "{{count}} 个字符"
@@ -215,7 +215,7 @@
       },
       "dialog": {
         "title": "恢复到 v{{version}}？",
-        "description": "v{{version}} 的内容会成为一个新版本，AI 员工从下一次运行起使用它。更新的版本仍保留在历史里。",
+        "description": "v{{version}} 的内容会成为一个新版本，智能体从下一次运行起使用它。更新的版本仍保留在历史里。",
         "unsaved_warning": "未保存的修改会被丢弃。",
         "cancel": "取消",
         "confirm": "恢复",
@@ -274,7 +274,7 @@
       "name_placeholder": "例如：review-helper",
       "name_hint": "工作区内必须唯一。",
       "description_label": "描述",
-      "description_placeholder": "用一句话说什么时候应该把这个技能分配给 AI 员工。",
+      "description_placeholder": "用一句话说什么时候应该把这个技能分配给智能体。",
       "name_conflict_hint": "请换一个名字再提交。",
       "fallback_error": "创建技能失败",
       "cancel": "取消",
@@ -346,7 +346,7 @@
     "skill_files_other": "{{count}} 个文件",
     "skill_name_label": "工作区里的技能名称",
     "skill_description_label": "描述",
-    "skill_description_placeholder": "可选——描述 AI 员工什么时候应该使用这个技能。",
+    "skill_description_placeholder": "可选——描述智能体什么时候应该使用这个技能。",
     "toast_imported": "已导入技能",
     "toast_import_failed": "导入技能失败",
     "select_all": "全选 ({{count}})",
@@ -396,28 +396,28 @@
   },
   "intro": {
     "title": "把团队的做事方法写成技能",
-    "description": "技能是一份可复用的做事说明（SOP）。在工作区里添加一次，分配给哪位 AI 员工，它就会照着做。",
+    "description": "技能是一份可复用的做事说明（SOP）。在工作区里添加一次，分配给哪位智能体，它就会照着做。",
     "slides": {
       "methods": {
         "title": "四种方式添加",
         "description": "从空白说明写起，或从本地文件夹、网址、运行环境导入已有的技能。"
       },
       "assign": {
-        "title": "分配给 AI 员工",
-        "description": "一个技能可以给多个 AI 员工用。改一处，所有用到它的 AI 员工都会更新。"
+        "title": "分配给智能体",
+        "description": "一个技能可以给多个智能体用。改一处，所有用到它的智能体都会更新。"
       },
       "share": {
         "title": "在工作区内共享",
-        "description": "电脑本地的技能在复制到工作区之前只有你能用，复制后所有 AI 员工都能用。"
+        "description": "电脑本地的技能在复制到工作区之前只有你能用，复制后所有智能体都能用。"
       }
     },
     "art": {
       "skill_summary": "先查平台违规词，再看卖点是否清楚、价格是否一致。",
-      "add_to_agent": "分配给 AI 员工",
+      "add_to_agent": "分配给智能体",
       "local_skills": "本地技能",
       "private": "私有",
       "workspace_shared": "工作区",
-      "all_agents": "所有 AI 员工可用",
+      "all_agents": "所有智能体可用",
       "role_reviewer": "审核",
       "role_fullstack": "运营",
       "copy_to_workspace": "复制到工作区"

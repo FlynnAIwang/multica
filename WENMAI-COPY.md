@@ -7,10 +7,10 @@
 
 | Multica 原文 | 改写后 | 说明 |
 |---|---|---|
-| 智能体 / Agent | AI 员工 | 像同事一样接活 |
+| 智能体 / Agent | 智能体（保留） | 像同事一样接活 |
 | 小队 / 队长 | 小组 / 组长 | |
 | 自动化 (Autopilot) | 例行任务 | 定时自动开工 |
-| 运行时 (Runtime) | 运行环境 | AI 员工干活的电脑 / 云端 |
+| 运行时 (Runtime) | 运行环境 | 智能体干活的电脑 / 云端 |
 | 守护进程 (daemon) | 后台服务 | |
 | harness | AI 工具 | Claude Code、Codex 等 |
 | Skills / skill | 技能 | 团队 SOP |
@@ -45,3 +45,16 @@ python3 scripts/wenmai/rewrite_zh_copy.py
 
 Multica License 第 1(b) 条：没有书面授权时，不能移除或修改界面里的 Multica 名称、Logo 和版权信息。
 所以本分支保留了 “Multica” 字样。要换成稳卖品牌，需要先拿到官方授权或商业许可。
+
+## 本地客户端（直连稳卖 Agent 本地 CLI）
+
+- 启动：双击 `scripts/wenmai/start-desktop.command`（Electron 桌面端，连本地后端 `127.0.0.1:18080`，配置见 `apps/desktop/.env.wenmai`，用 `git add -f` 提交）。
+- 工作区里有一个自定义运行环境「稳卖 Agent」（Codex 协议，命令 `wenmai-agent`）。
+  桌面端内置的后台服务会把 `scripts/wenmai` 加进 PATH，于是这台电脑注册上线后，
+  智能体的任务直接交给 `/Applications/Wenmai Agent.app` 里的 `wenmai` CLI 执行。
+- `scripts/wenmai/wenmai-agent`：包装脚本。注入稳卖模型网关配置（`-c` 覆盖），
+  从 `../run/wenmai.env`（chmod 600，不进仓库）读 API Key，并导出 `WENMAI_API_KEY` 给数据源技能用；
+  同时去掉从个人 `~/.codex` 复制来的 MCP / 插件 / hooks，避免 `thread/start` 卡住。
+- `scripts/wenmai/import_amazon_agents.py`：从 `FlynnAIwang/wenmai-ai-skills`（main）导入
+  4 个 Amazon 数据源智能体（卖家精灵调研 / Sorftime亚马逊调研 / 西柚流量洞察 / SIF关键词分析）
+  和它们的 118 个技能，指令 = 各自的 AGENTS.md，可重复运行（同名则更新）。

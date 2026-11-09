@@ -145,7 +145,7 @@
       "title": "当前套餐",
       "plan": "工作区套餐",
       "members": "成员席位",
-      "members_description": "AI 员工和待接受的邀请不计入席位。",
+      "members_description": "智能体和待接受的邀请不计入席位。",
       "member_count_other": "{{count}} 位成员",
       "billing_interval": "付款周期",
       "period_end": "当前周期结束时间"
@@ -184,7 +184,7 @@
     },
     "seats": {
       "title": "席位",
-      "description": "已购席位用于当前成员和待接受邀请，AI 员工不占席位。",
+      "description": "已购席位用于当前成员和待接受邀请，智能体不占席位。",
       "human_members": "已用席位",
       "billed": "已购席位",
       "pending_invitations": "待接受邀请",

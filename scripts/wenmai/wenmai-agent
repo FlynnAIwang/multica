@@ -1,0 +1,81 @@
+#!/bin/bash
+# 稳卖 Agent CLI wrapper for the Multica daemon (custom runtime, codex protocol).
+#
+# The daemon gives every task its own CODEX_HOME, seeded from the user's
+# shared Codex home. That per-task home does not know about the 稳卖 model
+# provider, so this wrapper injects it with `-c` overrides and loads the
+# API key from a local env file. No secret lives in this script.
+#
+#   WENMAI_BIN       path to the wenmai CLI (default: the one bundled in
+#                    /Applications/Wenmai Agent.app)
+#   WENMAI_ENV_FILE  file with WENMAI_AGENT_MODEL_BUILTIN_WENMAI_API_KEY=...
+#                    (default: <framework>/run/wenmai.env, chmod 600)
+#   WENMAI_MODEL     default model (default: deepseek-v4.1-flash)
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+FRAMEWORK_DIR="$(cd "$SCRIPT_DIR/../../.." && pwd -P)"
+
+WENMAI_BIN="${WENMAI_BIN:-/Applications/Wenmai Agent.app/Contents/Resources/wenmai-cli/darwin-arm64/wenmai}"
+WENMAI_ENV_FILE="${WENMAI_ENV_FILE:-$FRAMEWORK_DIR/run/wenmai.env}"
+WENMAI_MODEL="${WENMAI_MODEL:-deepseek-v4.1-flash}"
+WENMAI_HOME_DIR="${WENMAI_HOME_DIR:-$FRAMEWORK_DIR/wenmai-home}"
+
+if [ -z "${WENMAI_AGENT_MODEL_BUILTIN_WENMAI_API_KEY:-}" ] && [ -r "$WENMAI_ENV_FILE" ]; then
+  set -a
+  # shellcheck disable=SC1090
+  . "$WENMAI_ENV_FILE"
+  set +a
+fi
+# The data-source skills (卖家精灵 / Sorftime / 西柚 / SIF) read WENMAI_API_KEY;
+# the 稳卖 account key is the same one the model gateway uses.
+if [ -z "${WENMAI_API_KEY:-}" ] && [ -n "${WENMAI_AGENT_MODEL_BUILTIN_WENMAI_API_KEY:-}" ]; then
+  export WENMAI_API_KEY="$WENMAI_AGENT_MODEL_BUILTIN_WENMAI_API_KEY"
+fi
+
+# The daemon seeds each task's CODEX_HOME/config.toml from the user's personal
+# ~/.codex config, which can carry MCP servers, plugins, marketplaces and hooks
+# that block `thread/start` for the 稳卖 CLI. Drop those tables (keep the
+# daemon-managed blocks, sandbox, features, etc.) before launching.
+if [ -n "${CODEX_HOME:-}" ] && [ -f "$CODEX_HOME/config.toml" ] \
+   && [ "$(cd "$CODEX_HOME" && pwd -P)" != "$(cd "$WENMAI_HOME_DIR" 2>/dev/null && pwd -P)" ] \
+   && grep -q "multica-managed" "$CODEX_HOME/config.toml"; then
+  awk '
+    /^[[:space:]]*\[/ {
+      skip = ($0 ~ /^[[:space:]]*\[+[[:space:]]*"?(mcp_servers|plugins|marketplaces|hooks|model_providers|profiles)[".\]]/)
+    }
+    !skip && $0 !~ /^[[:space:]]*(notify|model_provider|model|profile)[[:space:]]*=/ { print }
+  ' "$CODEX_HOME/config.toml" > "$CODEX_HOME/config.toml.wenmai" \
+    && mv "$CODEX_HOME/config.toml.wenmai" "$CODEX_HOME/config.toml"
+fi
+
+P="model_providers.wenmaiAgent-builtin-wenmai"
+args=(
+  -c "model_provider=\"wenmaiAgent-builtin-wenmai\""
+  -c "$P.name=\"稳卖\""
+  -c "$P.base_url=\"https://all-model.wenmai-ai.com/v1\""
+  -c "$P.env_key=\"WENMAI_AGENT_MODEL_BUILTIN_WENMAI_API_KEY\""
+  -c "$P.wire_api=\"responses\""
+  -c "$P.requires_openai_auth=false"
+  -c "$P.supports_websockets=false"
+  -c "$P.http_headers={\"X-Wenmai-Client\"=\"2\"}"
+  # Let skill scripts see WENMAI_API_KEY (Codex hides *KEY* vars by default).
+  -c "shell_environment_policy.include_only=[]"
+  -c "shell_environment_policy.ignore_default_excludes=true"
+  -c "features.hooks=false"
+)
+# Only pin the default model when the caller did not choose one.
+case " $* " in
+  *" -m "*|*" --model "*|*" model="*) ;;
+  *) args+=(-c "model=\"$WENMAI_MODEL\"") ;;
+esac
+if [ -r "$WENMAI_HOME_DIR/model_catalog.json" ]; then
+  args+=(-c "model_catalog_json=\"$WENMAI_HOME_DIR/model_catalog.json\"")
+fi
+
+# `--version` / `--help` should pass straight through.
+case "${1:-}" in
+  --version|-V|--help|-h|version) exec "$WENMAI_BIN" "$@" ;;
+esac
+
+exec "$WENMAI_BIN" "${args[@]}" "$@"

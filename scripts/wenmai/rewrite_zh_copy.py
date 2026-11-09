@@ -38,8 +38,6 @@ def plain(old, new):
 
 RULES = [
     # 核心概念
-    plain("AI 智能体", "AI 员工"),
-    plain("智能体", "AI 员工"),
     plain("小队", "小组"),
     plain("队长", "组长"),
     plain("自动化", "例行任务"),
@@ -57,11 +55,7 @@ RULES = [
     plain("审核中", "待验收"),
     plain("已阻塞", "已卡住"),
     plain("被阻塞", "卡住了"),
-    # 中文里的空格修正：“的 AI 员工” 前面已有空格时不重复
-    lambda v: re.sub(r"  +AI 员工", " AI 员工", v),
-    lambda v: re.sub(r"(?<=[A-Za-z0-9}]) ?AI 员工", " AI 员工", v),
-    lambda v: re.sub(r"(?<=[一-鿿])(AI 员工|AI 工具)", r" \1", v),
-    lambda v: re.sub(r"^ AI 员工", "AI 员工", v),
+    lambda v: re.sub(r"(?<=[一-鿿])(AI 工具)", r" \1", v),
 ]
 
 

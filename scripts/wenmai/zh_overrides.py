@@ -2,28 +2,28 @@
 # key 格式：文件名:路径（只改 value，key 与 {{占位符}} 保持不变）
 OVERRIDES = {
     # ---------- 导航 ----------
-    "layout:tab.create_agent": "招一位 AI 员工",
-    "layout:panels.team.new_agent": "招一位 AI 员工",
+    "layout:tab.create_agent": "新建智能体",
+    "layout:panels.team.new_agent": "新建智能体",
     "layout:panels.team.stuck_other": "{{count}} 个任务在等离线的运行环境",
     "layout:panels.autopilots.templates": "从常用模板开始",
 
     # ---------- 欢迎页 / 上手问卷 ----------
-    "onboarding:welcome.headline_line1": "你的 AI 员工，",
+    "onboarding:welcome.headline_line1": "你的智能体，",
     "onboarding:welcome.headline_line2": "和团队在",
     "onboarding:welcome.headline_emphasis": "同一个工作台。",
-    "onboarding:welcome.lede": "像给同事派活一样把工作交给 AI 员工——它们会接手、随时汇报进度，做完把结果交回给你验收。",
+    "onboarding:welcome.lede": "像给同事派活一样把工作交给智能体——它们会接手、随时汇报进度，做完把结果交回给你验收。",
     "onboarding:welcome.lede_web": "桌面端装好就能用。在网页端继续的话，需要先连接一台已装好 AI 工具的电脑。",
     "onboarding:welcome.illustration.card1_body_prefix": " 能不能写一版黑五主图文案？参考 ",
     "onboarding:welcome.illustration.card1_body_suffix": " 整理的竞品差评。",
-    "onboarding:welcome.illustration.card1_mention_content": "@文案员工",
-    "onboarding:welcome.illustration.card1_mention_research": "@调研员工",
-    "onboarding:welcome.illustration.card2_actor_name": "文案员工",
-    "onboarding:welcome.illustration.card2_body": "好的，正在拉取调研员工整理的差评要点，围绕“静音、好清洗”来写……",
-    "onboarding:welcome.illustration.card3_actor_name": "调研员工",
+    "onboarding:welcome.illustration.card1_mention_content": "@文案智能体",
+    "onboarding:welcome.illustration.card1_mention_research": "@调研智能体",
+    "onboarding:welcome.illustration.card2_actor_name": "文案智能体",
+    "onboarding:welcome.illustration.card2_body": "好的，正在拉取调研智能体整理的差评要点，围绕“静音、好清洗”来写……",
+    "onboarding:welcome.illustration.card3_actor_name": "调研智能体",
     "onboarding:welcome.illustration.card3_body": "本周竞品评论分析完成——1,200 条评论、4 个高频痛点、3 句可直接引用的买家原话。",
-    "onboarding:welcome.illustration.card4_actor_name": "审核员工",
+    "onboarding:welcome.illustration.card4_actor_name": "审核智能体",
     "onboarding:welcome.illustration.card4_body": "周一那版 Listing 已审完——标出 4 处可能违规的用词，等新一版。",
-    "onboarding:welcome.illustration.card5_actor_name": "运营员工",
+    "onboarding:welcome.illustration.card5_actor_name": "运营智能体",
     "onboarding:welcome.illustration.card5_body_prefix": "已按 ",
     "onboarding:welcome.illustration.card5_body_suffix": " 的要求调整 PW-5 价格和优惠券，改动明细附在任务里。",
     "onboarding:questions.role.engineer": "技术 / 开发",
@@ -36,7 +36,7 @@ OVERRIDES = {
     "onboarding:questions.role.ops": "店铺运营",
     "onboarding:questions.role.student": "个人卖家",
     "onboarding:questions.role.other_placeholder": "例如：客服主管、供应链",
-    "onboarding:questions.use_case.ship_code": "让 AI 员工直接帮我干活",
+    "onboarding:questions.use_case.ship_code": "让智能体直接帮我干活",
     "onboarding:questions.use_case.manage_team": "给团队派活、跟进度",
     "onboarding:questions.use_case.personal_tasks": "管好我自己的待办",
     "onboarding:questions.use_case.plan_research": "选品、竞品调研、做计划",
@@ -51,9 +51,9 @@ OVERRIDES = {
     "chat:onboarding_cards.digest.desc": "每天自动汇总店铺和团队的进展，发到你的消息中心。",
     "chat:onboarding_cards.digest.prompt": "帮我建一个例行任务：每天早上自动汇总店铺和团队的进展，写成日报",
 
-    # ---------- AI 员工介绍页 ----------
-    "agents:intro.title": "招第一位 AI 员工",
-    "agents:intro.description": "AI 员工像团队成员一样接活：在你的电脑或云端动手做，做完把结果写在任务评论里交给你。",
+    # ---------- 智能体介绍页 ----------
+    "agents:intro.title": "招第一位智能体",
+    "agents:intro.description": "智能体像团队成员一样接活：在你的电脑或云端动手做，做完把结果写在任务评论里交给你。",
     "agents:intro.slides.describe.description": "说清它负责什么，选好在哪台电脑上干活，就能上岗。之后随时改要求、加技能。",
     "agents:intro.slides.deliver.description": "干活过程实时可见；做完在任务评论里交付结果和文件。",
     "agents:intro.art.prompt": "负责美国站 Listing 优化：先看竞品差评，再改标题和五点描述，结论写在任务评论里。",
@@ -62,8 +62,8 @@ OVERRIDES = {
 
     # ---------- 项目介绍页 ----------
     "projects:intro.title": "把一件大事拆成项目来推进",
-    "projects:intro.description": "项目把相关任务收在一起，统一看进度。项目背景和参考资料会自动带给每一位接手的 AI 员工。",
-    "projects:intro.slides.context.title": "背景资料自动带给 AI 员工",
+    "projects:intro.description": "项目把相关任务收在一起，统一看进度。项目背景和参考资料会自动带给每一位接手的智能体。",
+    "projects:intro.slides.context.title": "背景资料自动带给智能体",
     "projects:intro.slides.context.description": "项目背景写一次、资料挂一次，项目里每个任务都会自动带上，不用反复交代。",
     "projects:intro.art.project_website": "黑五大促备战",
     "projects:intro.art.project_mobile": "PW-5 新品上架",
@@ -77,10 +77,10 @@ OVERRIDES = {
     "projects:intro.art.issue_blog": "广告关键词扩词",
 
     # ---------- 小组介绍页 ----------
-    "squads:intro.title": "让 AI 员工组成小组，像团队一样干活",
+    "squads:intro.title": "让智能体组成小组，像团队一样干活",
     "squads:intro.description": "把任务交给小组，组长会读懂需求，按成员的分工派下一步，并跟进到目标完成。你只需要对接一个人。",
     "squads:intro.slides.route.description": "组长读懂任务后，@ 最适合做下一步的成员。只有被点名的成员会开工。",
-    "squads:intro.slides.roles.description": "分工说明告诉组长每位成员擅长什么。成员可以是 AI 员工，也可以是真人同事。",
+    "squads:intro.slides.roles.description": "分工说明告诉组长每位成员擅长什么。成员可以是智能体，也可以是真人同事。",
     "squads:intro.art.squad_name": "美国站运营小组",
     "squads:intro.art.issue_dark_mode": "黑五主推款定价方案",
     "squads:intro.art.issue_board_columns": "Listing 标题与五点优化",
@@ -92,8 +92,8 @@ OVERRIDES = {
     "squads:intro.art.role_product": "调研",
 
     # ---------- 运行环境介绍页 ----------
-    "runtimes:intro.title": "给 AI 员工一台干活的电脑",
-    "runtimes:intro.description": "运行环境就是 AI 员工真正干活的地方：你的电脑、公司的服务器，或者云端。",
+    "runtimes:intro.title": "给智能体一台干活的电脑",
+    "runtimes:intro.description": "运行环境就是智能体真正干活的地方：你的电脑、公司的服务器，或者云端。",
     "runtimes:intro.slides.local.description": "下载桌面端并登录，这台电脑上已装好的 AI 工具（如 Claude Code、Codex）会自动出现。",
     "runtimes:intro.slides.remote.title": "其他电脑，照着步骤连上",
     "runtimes:intro.slides.remote.description": "在公司服务器或另一台电脑上按提示装好工具，就能接入。一般请技术同事帮忙一次即可。",
@@ -102,16 +102,16 @@ OVERRIDES = {
 
     # ---------- 技能介绍页 ----------
     "skills:intro.title": "把团队的做事方法写成技能",
-    "skills:intro.description": "技能是一份可复用的做事说明（SOP）。在工作区里添加一次，分配给哪位 AI 员工，它就会照着做。",
+    "skills:intro.description": "技能是一份可复用的做事说明（SOP）。在工作区里添加一次，分配给哪位智能体，它就会照着做。",
     "skills:intro.slides.methods.description": "从空白说明写起，或从本地文件夹、网址、运行环境导入已有的技能。",
-    "skills:intro.slides.share.description": "电脑本地的技能在复制到工作区之前只有你能用，复制后所有 AI 员工都能用。",
+    "skills:intro.slides.share.description": "电脑本地的技能在复制到工作区之前只有你能用，复制后所有智能体都能用。",
     "skills:intro.art.skill_summary": "先查平台违规词，再看卖点是否清楚、价格是否一致。",
     "skills:intro.art.role_reviewer": "审核",
     "skills:intro.art.role_fullstack": "运营",
 
     # ---------- 例行任务 ----------
-    "autopilots:intro.title": "让 AI 员工按时自己开工",
-    "autopilots:intro.description": "设好时间表，每到时间就自动建任务交给 AI 员工，也可以随时手动运行。挑一个模板，改改就能用。",
+    "autopilots:intro.title": "让智能体按时自己开工",
+    "autopilots:intro.description": "设好时间表，每到时间就自动建任务交给智能体，也可以随时手动运行。挑一个模板，改改就能用。",
     "autopilots:templates.daily_news.title": "每日行业与平台动态",
     "autopilots:templates.daily_news.summary": "汇总今天的平台政策、行业新闻给团队",
     "autopilots:templates.pr_review.title": "竞品价格监控",
@@ -131,7 +131,7 @@ OVERRIDES = {
     "issues:wakeups.wait.other_in_review": "等 {{issue}} 进入待验收",
     "issues:wakeups.wait.other_blocked": "等 {{issue}} 卡住",
     # ---------- 唤醒介绍页 ----------
-    "autopilots:wakeups.intro.description": "唤醒挂在任务上：有人回复了、前置任务完成了、到点了，就把 AI 员工叫回来接着做。任务结束，唤醒自动停止。",
+    "autopilots:wakeups.intro.description": "唤醒挂在任务上：有人回复了、前置任务完成了、到点了，就把智能体叫回来接着做。任务结束，唤醒自动停止。",
     "autopilots:wakeups.intro.slides.ends.description": "唤醒属于任务，任务完成或取消后自动关闭，不会留下没人管的规则。",
     "autopilots:wakeups.intro.art.issue_inbox": "黑五主推款上架",
     "autopilots:wakeups.intro.art.issue_board": "Listing 标题与五点优化",

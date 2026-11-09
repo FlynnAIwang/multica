@@ -3,7 +3,7 @@
     "new_autopilot": "新建例行任务",
     "table": {
       "name": "名称",
-      "agent": "AI 员工",
+      "agent": "智能体",
       "created_by": "创建者",
       "mode": "模式",
       "status": "状态",
@@ -20,7 +20,7 @@
   "status": {
     "active": "启用",
     "paused": "已暂停",
-    "paused_runtime_required": "已暂停——执行 AI 员工需绑定运行环境",
+    "paused_runtime_required": "已暂停——执行智能体需绑定运行环境",
     "archived": "已归档"
   },
   "execution_mode": {
@@ -65,18 +65,18 @@
     "back_to_list": "全部例行任务",
     "pause_aria": "暂停例行任务",
     "activate_aria": "启用例行任务",
-    "paused_runtime_required": "由于执行 AI 员工失去运行环境，例行任务已暂停。绑定运行环境后请重新启用。",
+    "paused_runtime_required": "由于执行智能体失去运行环境，例行任务已暂停。绑定运行环境后请重新启用。",
     "bind_runtime": "绑定运行环境",
     "edit": "编辑",
     "run_now": "立即运行",
     "running": "运行中...",
     "toast_triggered": "已触发例行任务",
     "toast_trigger_failed": "触发例行任务失败",
-    "run_blocked_invocation_not_allowed": "未触发——你没有该例行任务所用 AI 员工的使用权限",
-    "run_blocked_runtime_offline": "未触发——该 AI 员工的运行环境已离线",
-    "run_blocked_agent_runtime_required": "未触发——该 AI 员工未绑定运行环境，绑定后才能运行",
-    "run_blocked_runtime_access_denied": "未触发——该 AI 员工无法在其私有运行环境上运行。请将该运行环境设为公开，或重新绑定/复制 AI 员工",
-    "run_blocked_target_unavailable": "未触发——该 AI 员工不可用",
+    "run_blocked_invocation_not_allowed": "未触发——你没有该例行任务所用智能体的使用权限",
+    "run_blocked_runtime_offline": "未触发——该智能体的运行环境已离线",
+    "run_blocked_agent_runtime_required": "未触发——该智能体未绑定运行环境，绑定后才能运行",
+    "run_blocked_runtime_access_denied": "未触发——该智能体无法在其私有运行环境上运行。请将该运行环境设为公开，或重新绑定/复制智能体",
+    "run_blocked_target_unavailable": "未触发——该智能体不可用",
     "run_blocked_attribution": "未触发——无法确定本次运行的负责成员",
     "run_blocked_already_active": "未触发——最近已有一次运行覆盖了本次",
     "run_blocked_quota_exceeded": "未触发——本周期的运行额度已用尽",
@@ -84,7 +84,7 @@
     "run_blocked_generic": "未触发——本次运行已被拦截",
     "section_triggers": "触发器",
     "section_run_history": "运行历史",
-    "field_agent": "AI 员工",
+    "field_agent": "智能体",
     "field_created_by": "创建者",
     "field_output_mode": "输出模式",
     "field_project": "关联项目",
@@ -282,8 +282,8 @@
     "close": "关闭",
     "title_placeholder": "例行任务名称",
     "runbook_label": "Runbook",
-    "runbook_hint": "AI 员工每次运行时读取",
-    "description_placeholder": "# 目标\n你希望 AI 员工完成什么？\n\n# 上下文\n这是给谁的？有什么约束？\n\n# 步骤\n1. ...\n2. ...",
+    "runbook_hint": "智能体每次运行时读取",
+    "description_placeholder": "# 目标\n你希望智能体完成什么？\n\n# 上下文\n这是给谁的？有什么约束？\n\n# 步骤\n1. ...\n2. ...",
     "auto_run_hint": "保存后会自动运行，直到暂停。",
     "cancel": "取消",
     "create": "创建例行任务",
@@ -298,10 +298,10 @@
     "toast_update_partial": "例行任务已更新，但时间表保存失败",
     "toast_update_partial_with_reason": "例行任务已更新，但时间表保存失败：{{reason}}",
     "toast_update_failed": "更新例行任务失败",
-    "section_agent": "AI 员工",
+    "section_agent": "智能体",
     "section_assignee": "执行方",
-    "select_agent": "选择 AI 员工",
-    "select_assignee": "选择 AI 员工或小组",
+    "select_agent": "选择智能体",
+    "select_assignee": "选择智能体或小组",
     "section_project": "关联项目",
     "project_hint": "同时决定运行环境的执行环境 —— 该项目的仓库或本地目录",
     "no_project": "不关联项目",
@@ -335,7 +335,7 @@
     "schedule_empty": "还没有时间表——这个例行任务只在手动触发时运行。",
     "schedule_add": "添加时间表",
     "error_title_required": "请填写例行任务名称。",
-    "error_assignee_required": "请选择运行该例行任务的 AI 员工或小组。",
+    "error_assignee_required": "请选择运行该例行任务的智能体或小组。",
     "output_modes": {
       "create_issue": {
         "label": "创建任务",
@@ -434,12 +434,12 @@
     }
   },
   "agent_picker": {
-    "filter_placeholder": "筛选 AI 员工或小组...",
-    "select_agent": "选择 AI 员工",
-    "select_assignee": "选择 AI 员工或小组",
-    "agents_group": "AI 员工",
+    "filter_placeholder": "筛选智能体或小组...",
+    "select_agent": "选择智能体",
+    "select_assignee": "选择智能体或小组",
+    "agents_group": "智能体",
     "squads_group": "小组",
-    "agent_runtime_required": "请先为该 AI 员工绑定运行环境",
+    "agent_runtime_required": "请先为该智能体绑定运行环境",
     "squad_runtime_required": "请先为该小组的负责人绑定运行环境"
   },
   "timezone_picker": {
@@ -474,7 +474,7 @@
     "event": "事件",
     "at": "单次定时",
     "recurring": "周期",
-    "all_agents": "所有 AI 员工",
+    "all_agents": "所有智能体",
     "running": "运行中",
     "active_runs": "{{count}} 个运行未结束",
     "issue_closed": "任务已关闭",
@@ -485,7 +485,7 @@
     "loading": "正在加载唤醒…",
     "disable_selected": "关闭所选",
     "confirm_title": "关闭 {{count}} 个唤醒？",
-    "confirm_body": "关闭后将停止后续唤醒，并撤回仍在排队、尚未交给 AI 员工的运行。已交给 AI 员工的运行会继续，可在执行日志中停止。",
+    "confirm_body": "关闭后将停止后续唤醒，并撤回仍在排队、尚未交给智能体的运行。已交给智能体的运行会继续，可在执行日志中停止。",
     "cancel": "取消",
     "confirm": "关闭",
     "disabling": "正在关闭…",
@@ -505,7 +505,7 @@
     "sources": {
       "all": "全部来源",
       "member": "成员",
-      "agent": "AI 员工",
+      "agent": "智能体",
       "system": "系统"
     },
     "runs_7d": "近 7 天运行",
@@ -513,19 +513,19 @@
     "until_issue_ends": "任务结束前",
     "fires_once": "触发一次",
     "assignee_target": "负责人 · {{name}}",
-    "no_target": "没有 AI 员工负责人",
+    "no_target": "没有智能体负责人",
     "banner_other": "{{count}} 条唤醒已自动暂停：{{issue}}「{{condition}}」——{{reason}}",
     "banner_view": "查看",
     "create": "新建唤醒",
     "create_pick_issue": "选择要添加唤醒的任务",
     "create_pick_issue_description": "唤醒属于该任务，并随任务结束而停止。",
     "intro": {
-      "title": "让 AI 员工在对的时候回来",
-      "description": "唤醒挂在任务上：有人回复了、前置任务完成了、到点了，就把 AI 员工叫回来接着做。任务结束，唤醒自动停止。",
+      "title": "让智能体在对的时候回来",
+      "description": "唤醒挂在任务上：有人回复了、前置任务完成了、到点了，就把智能体叫回来接着做。任务结束，唤醒自动停止。",
       "slides": {
         "event": {
           "title": "等事件发生",
-          "description": "不用让 AI 员工空转等待。条件满足时，平台自动把它叫回来。"
+          "description": "不用让智能体空转等待。条件满足时，平台自动把它叫回来。"
         },
         "time": {
           "title": "或者定个时间",
@@ -547,8 +547,8 @@
   },
   "intro": {
     "label": "例行任务",
-    "title": "让 AI 员工按时自己开工",
-    "description": "设好时间表，每到时间就自动建任务交给 AI 员工，也可以随时手动运行。挑一个模板，改改就能用。",
+    "title": "让智能体按时自己开工",
+    "description": "设好时间表，每到时间就自动建任务交给智能体，也可以随时手动运行。挑一个模板，改改就能用。",
     "templates": "从模板开始"
   }
 }

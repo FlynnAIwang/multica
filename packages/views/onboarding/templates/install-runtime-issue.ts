@@ -68,7 +68,7 @@ Mika will turn one real goal into an issue, start it with the right agent, and s
 
 const zh = `欢迎来到 Multica。
 
-AI 员工需要先连上运行环境才能执行工作。运行环境还没准备好时,你也可以先把 Multica 当作轻量项目管理工具体验起来。
+智能体需要先连上运行环境才能执行工作。运行环境还没准备好时,你也可以先把 Multica 当作轻量项目管理工具体验起来。
 
 ## 先体验项目管理功能
 
@@ -79,9 +79,9 @@ AI 员工需要先连上运行环境才能执行工作。运行环境还没准�
 3. 给任务加优先级、标签、评论和订阅。
 4. 用收件箱追踪分配给你的事项和 @mention。
 
-这样你先熟悉项目管理层。连上运行环境后,AI 员工会直接在这些任务上开始工作。
+这样你先熟悉项目管理层。连上运行环境后,智能体会直接在这些任务上开始工作。
 
-## 安装第一个 AI 员工的运行环境
+## 安装第一个智能体的运行环境
 
 完整文档:https://multica.ai/docs/install-agent-runtime
 
@@ -108,7 +108,7 @@ Windows 用户请先安装 [Git for Windows](https://gitforwindows.org/)，Kimi 
 
 Kimi CLI 官方文档:https://moonshotai.github.io/kimi-cli/zh/guides/getting-started.html
 
-Mika 会把一个真实目标转化为任务，交给合适的 AI 员工启动执行，并在工作流需要时建议添加可复用的专项 AI 员工。`;
+Mika 会把一个真实目标转化为任务，交给合适的智能体启动执行，并在工作流需要时建议添加可复用的专项智能体。`;
 
 const ko = `Multica에 오신 것을 환영합니다.
 
